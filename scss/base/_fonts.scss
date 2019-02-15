@@ -1,0 +1,58 @@
+/*┌─╴╭─╮╭╮╷╶┬╴╭─╴
+  ├─╴│ ││││ │ ╰─╮
+  ╵  ╰─╯╵╰╯ ╵ ╶─╯*/
+
+// Compagnon-Light
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/compagnon/Compagnon-Light.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/compagnon/Compagnon-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/compagnon/Compagnon-Light.woff2') format('woff2'),
+         url('../fonts/compagnon/Compagnon-Light.woff') format('woff');
+    font-weight: $light;
+    font-style: normal;
+}
+
+// Compagnon-Roman
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/compagnon/Compagnon-Roman.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/compagnon/Compagnon-Roman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/compagnon/Compagnon-Roman.woff2') format('woff2'),
+         url('../fonts/compagnon/Compagnon-Roman.woff') format('woff');
+    font-weight: $normal;
+    font-style: normal;
+}
+
+// Compagnon-Italic
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/compagnon/Compagnon-Italic.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/compagnon/Compagnon-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/compagnon/Compagnon-Italic.woff2') format('woff2'),
+         url('../fonts/compagnon/Compagnon-Italic.woff') format('woff');
+    font-weight: $normal;
+    font-style: italic;
+}
+
+// Compagnon-Medium
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/compagnon/Compagnon-Medium.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/compagnon/Compagnon-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/compagnon/Compagnon-Medium.woff2') format('woff2'),
+         url('../fonts/compagnon/Compagnon-Medium.woff') format('woff');
+    font-weight: $medium;
+    font-style: normal;
+}
+
+// Compagnon-Bold
+@font-face {
+    font-family: 'Compagnon';
+    src: url('../fonts/compagnon/Compagnon-Bold.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/compagnon/Compagnon-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/compagnon/Compagnon-Bold.woff2') format('woff2'),
+         url('../fonts/compagnon/Compagnon-Bold.woff') format('woff');
+    font-weight: $bold;
+    font-style: normal;
+}
