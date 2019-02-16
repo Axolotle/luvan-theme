@@ -1,3 +1,29 @@
 @import 'base/vars';
+@import 'mixins';
 @import 'base/reset';
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+
+    h1 {
+        @include font('light');
+    }
+
+    nav  {
+        width: 50%;
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+.flex {
+    display: flex;
+}
+
 @import 'base/fonts';

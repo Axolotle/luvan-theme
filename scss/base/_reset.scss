@@ -44,7 +44,8 @@ html {
 
 body {
 	line-height: 1.2;
-	width: 100%;
+    width: 80%;
+    margin: auto;
 }
 
 ol, ul {
@@ -59,6 +60,11 @@ blockquote::before, q::before, {
 }
 blockquote::after, q::after {
 	content: ' »';
+}
+
+p {
+    margin: 1rem 0;
+    @include font('reg');
 }
 
 table {

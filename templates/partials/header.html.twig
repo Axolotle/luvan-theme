@@ -1,0 +1,14 @@
+<header>
+    <h1><a href="{{ base_url == '' ? '/' : base_url }}">{{ config.site.title }}</a></h1>
+    <nav>
+        <ul>
+            {% for p in pages.children.visible %}
+            <li>
+                <a href="{{ p.url }}">
+                    {{ p.menu }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,15 @@
+{% extends 'default.html.twig' %}
+
+{% block main %}
+
+{% for post in page.collection.visible %}
+{% include 'partials/post-sample.html.twig' with {'post':post} %}
+{% endfor %}
+
+{% if config.plugins.pagination.enabled and collection.params.pagination %}
+<nav class="pagination">
+    {% include 'partials/pagination.html.twig' with {base_url: page.url, pagination: collection.params.pagination} %}
+</nav>
+{% endif %}
+
+{% endblock %}

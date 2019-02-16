@@ -9,7 +9,7 @@
     src: url('../fonts/compagnon/Compagnon-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/compagnon/Compagnon-Light.woff2') format('woff2'),
          url('../fonts/compagnon/Compagnon-Light.woff') format('woff');
-    font-weight: $light;
+    font-weight: 300;
     font-style: normal;
 }
 
@@ -20,7 +20,7 @@
     src: url('../fonts/compagnon/Compagnon-Roman.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/compagnon/Compagnon-Roman.woff2') format('woff2'),
          url('../fonts/compagnon/Compagnon-Roman.woff') format('woff');
-    font-weight: $normal;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -31,7 +31,7 @@
     src: url('../fonts/compagnon/Compagnon-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/compagnon/Compagnon-Italic.woff2') format('woff2'),
          url('../fonts/compagnon/Compagnon-Italic.woff') format('woff');
-    font-weight: $normal;
+    font-weight: 400;
     font-style: italic;
 }
 
@@ -42,7 +42,7 @@
     src: url('../fonts/compagnon/Compagnon-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/compagnon/Compagnon-Medium.woff2') format('woff2'),
          url('../fonts/compagnon/Compagnon-Medium.woff') format('woff');
-    font-weight: $medium;
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -53,6 +53,6 @@
     src: url('../fonts/compagnon/Compagnon-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
          url('../fonts/compagnon/Compagnon-Bold.woff2') format('woff2'),
          url('../fonts/compagnon/Compagnon-Bold.woff') format('woff');
-    font-weight: $bold;
+    font-weight: 700;
     font-style: normal;
 }

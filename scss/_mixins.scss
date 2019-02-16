@@ -1,0 +1,14 @@
+@mixin font($name) {
+    @if $name == 'reg' {
+        font-weight: 400;
+    } @elseif $name == 'light' {
+        font-weight: 300;
+    } @elseif $name == 'ital' {
+        font-weight: 400;
+        font-style: italic;
+    } @elseif $name == 'bold' {
+        font-weight: 500;
+    } @elseif $name == 'script' {
+        font-weight: 700;
+    }
+}

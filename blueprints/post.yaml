@@ -1,0 +1,24 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            taxonomies:
+              type: section
+              title: PLUGIN_ADMIN.TAXONOMIES
+              underline: true
+
+              fields:
+                header.taxonomy:
+                  type: taxonomy
+                  label: PLUGIN_ADMIN.TAXONOMY
+                  multiple: true
+                  validate:
+                    type: array
+        options:
+          fields:
+            taxonomies:
+              unset@: true
