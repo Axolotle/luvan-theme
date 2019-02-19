@@ -1,14 +1,19 @@
-<header>
-    <h1><a href="{{ base_url == '' ? '/' : base_url }}">{{ config.site.title }}</a></h1>
-    <nav>
-        <ul>
-            {% for p in pages.children.visible %}
-            <li>
-                <a href="{{ p.url }}">
-                    {{ p.menu }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </nav>
+<header role="banner">
+    <svg aria-hidden="true" class="lines" viewBox="0 0 100 15">
+        <use xlink:href="#line-header" />
+    </svg>
+    <div class="container">
+        <h1><a href="{{ base_url == '' ? '/' : base_url }}" aria-label="Accueil">{{ config.site.title }}</a></h1>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul>
+                {% for p in pages.children.visible %}
+                <li>
+                    <a href="{{ p.url }}" {% if p.active %}aria-current="page"{% endif %}>
+                        {{ p.menu }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
 </header>

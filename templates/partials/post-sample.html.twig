@@ -1,24 +1,30 @@
 <article>
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+        <use xlink:href="#line-{{ n }}" />
+    </svg>
     <h2><a href="{{ post.url }}" class="u-url">{{ post.title }}</a></h2>
-    <time datetime="{{ post.date|date("c") }}">
-        <span>{{ post.date|date("d") }}</span>
-        <em>{{ 'MONTHS_OF_THE_YEAR_ABBR'|ta(post.date|date('n') - 1) }}</em>
-    </time>
+    <div class="cont">
+        <time datetime="{{ post.date|date("c") }}">
+            <span>{{ post.date|date("d") }}</span>
+            <em>{{ 'MONTHS_OF_THE_YEAR_ABBR'|ta(post.date|date('n') - 1) }}</em>
+        </time>
 
-    {% if post.taxonomy.category %}
-    <ul class="categories">
-    {% for category in post.taxonomy.category %}
-        <li>
-            <a href="{{ blog.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-    {% endif %}
-
-    <div>
-        {{ post.summary != post.content ? post.summary : post.content }}
-        {% if post.summary != post.content %}
-        <p><a href="{{ post.url }}">Continuer à lire</a></p>
+        {% if post.taxonomy.category %}
+        <ul class="categories">
+        {% for category in post.taxonomy.category %}
+            <li>
+                <a href="{{ blog.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
+            </li>
+        {% endfor %}
+        </ul>
         {% endif %}
+
+        <div>
+            {{ post.summary != post.content ? post.summary : post.content }}
+            {% if post.summary != post.content %}
+            <p><a href="{{ post.url }}">Continuer à lire</a></p>
+            {% endif %}
+        </div>
     </div>
+
 </article>
