@@ -1,0 +1,26 @@
+{% set blog = pages.find('/blog') %}
+
+<aside class="">
+    <div class="shape"></div>
+    <div class="container">
+        <section>
+            <h3>Actu</h3>
+            {{ blog.content }}
+        </section>
+
+        <section>
+            <h3>Dernières publications</h3>
+        </section>
+
+        <section>
+            <h3>Dernières actualités</h3>
+            <ul>
+            {% for post in blog.collection.visible|slice(0, 5) %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </section>
+    </div>
+</aside>

@@ -4,15 +4,12 @@
 {% include 'svgs/post-sample.html.twig' %}
 
 {% include 'partials/header.html.twig' %}
-<div class="flex">
-    <main role="main">
-    {% block main %}
-    {% if page.content %}
-    {{ page.content }}
-    {% endif %}
-    {% endblock %}
-    </main>
-    <aside class="">
-    </aside>
-</div>
+<main role="main">
+{% block main %}
+{% if page.content %}
+{{ page.content }}
+{% endif %}
+{% endblock %}
+</main>
+{% include 'partials/aside.html.twig' %}
 {% endblock %}

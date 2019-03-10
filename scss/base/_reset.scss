@@ -40,12 +40,11 @@ footer, header, hgroup, main, menu, nav, section {
 
 html {
 	width: 100%;
+    height: auto;
 }
 
 body {
 	line-height: 1.2;
-    // width: 80%;
-    // margin: auto;
 }
 
 ol, ul {
@@ -55,10 +54,10 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
-blockquote::before, q::before, {
+blockquote :first-child::before, q::before, {
 	content: '« ';
 }
-blockquote::after, q::after {
+blockquote :last-child::after, q::after {
 	content: ' »';
 }
 
@@ -70,6 +69,21 @@ p {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+strong {
+    font-weight: 500;
+}
+em {
+    font-style: italic;
+}
+
+a {
+    color: $text-color;
+}
+
+li::before {
+    content: '- ';
 }
 
 ::-moz-selection {

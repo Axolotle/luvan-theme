@@ -3,7 +3,7 @@
 {% block main %}
 
 {% for post in page.collection.visible %}
-{% include 'partials/post-sample.html.twig' with {'post':post, 'n': loop.index} %}
+{% include 'partials/post-sample.html.twig' with {'post':post} %}
 {% endfor %}
 
 {% if page.collection.visible.params.pagination %}
