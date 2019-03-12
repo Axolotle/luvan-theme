@@ -54,10 +54,10 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
-blockquote :first-child::before, q::before, {
+blockquote > :first-child::before, q::before, {
 	content: '« ';
 }
-blockquote :last-child::after, q::after {
+blockquote > :last-child::after, q::after {
 	content: ' »';
 }
 
@@ -87,7 +87,11 @@ li::before {
 }
 
 ::-moz-selection {
+    background-color: #b0b0b0;
+    color: white;
 }
 
 ::selection {
+    background-color: #b0b0b0;
+    color: white;
 }

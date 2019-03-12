@@ -1,9 +1,22 @@
 {% extends 'default.html.twig' %}
 
+{% block nav_extra %}
+<nav>
+    <ul class="categories">
+    {% for category in taxonomy.getTaxonomyItemKeys('type') %}
+        <li>
+            <a href="{{ blog.url|rtrim('/') }}/type{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</nav>
+{% endblock %}
+
 {% block main %}
 
 {% for post in page.collection.visible %}
 {% include 'partials/post-sample.html.twig' with {'post':post} %}
+    {{ dump(post)}}
 {% endfor %}
 
 {% if page.collection.visible.params.pagination %}

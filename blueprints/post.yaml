@@ -12,12 +12,14 @@ form:
               underline: true
 
               fields:
-                header.taxonomy:
-                  type: taxonomy
-                  label: PLUGIN_ADMIN.TAXONOMY
-                  multiple: true
-                  validate:
-                    type: array
+                header.taxonomy.type:
+                  type: select
+                  label: type
+                  options:
+                    'billet': 'billet'
+                    'brève': 'brève'
+                    'notification': 'notification'
+
         options:
           fields:
             taxonomies:

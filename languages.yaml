@@ -1,0 +1,13 @@
+fr:
+    MONTHS_OF_THE_YEAR: [Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    MONTHS_OF_THE_YEAR_ABBR: [Jan, Fév, Mar, Avr, Mai, Jun, Jul, Aoû, Sep, Oct, Nov, Déc]
+    CONTINUE_READING: Continuer la lecture
+    NEXT_PAGE: Page suivante
+    PREV_PAGE: Page précédente
+    BLUEPRINTS:
+      BLOG:
+        ADD: Ajouter un billet
+        TITLE: Titre du billet
+        TITLE_HELP: Le titre du billet
+        TYPE: Type de billet
+        TYPE: Choisir un type de billet pour adapter l'affichage

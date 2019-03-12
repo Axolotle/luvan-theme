@@ -3,7 +3,7 @@
 {% block body %}
 {% include 'svgs/post-sample.html.twig' %}
 
-{% include 'partials/header.html.twig' %}
+{% include 'partials/header.html.twig' with {nav_extra: block('nav_extra')} %}
 <main role="main">
 {% block main %}
 {% if page.content %}

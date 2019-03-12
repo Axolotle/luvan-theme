@@ -1,0 +1,82 @@
+article {
+    position: sticky;
+    background-color: white;
+    min-height: 5rem;
+
+    &.billet {
+
+        h2 {
+            background-color: $alt-color2;
+        }
+    }
+    &.brève {
+        height: 0;
+        h2 {
+            background-color: $alt-color;
+        }
+    }
+    &.notification {
+        h2 {
+            background-color: $alt-color3;
+        }
+    }
+
+    .lines {
+        position: relative;
+        top: -9.9vw;
+        margin-bottom: -9.9vw;
+        width: 100%;
+        pointer-events: none;
+    }
+
+    h2 {
+        display: inline-block;
+        position: relative;
+        top: -2.3rem;
+        left: 1rem;
+        transform: rotate($angle);
+        transform-origin: top left;
+
+        height: 2.5rem;
+        padding: 0 1rem;
+        background-color: white;
+
+        @include font('script');
+        font-size: 1.5rem;
+    }
+
+    .content {
+        padding-left: 5rem;
+        padding-bottom: 3rem;
+        width: 60%;
+        transform: rotate(3deg);
+        height: 20rem;
+        overflow: hidden;
+
+        time {
+            display: block;
+            width: 50%;
+            text-align: right;
+        }
+
+        .next {
+            background-color: white;
+            padding: 0.5rem 1rem;
+            position: absolute;
+            bottom: 75px;
+        }
+    }
+
+    &:nth-of-type(4n+1) {
+        top: 10rem;
+    }
+    &:nth-of-type(4n+2) {
+        top: 13rem;
+    }
+    &:nth-of-type(4n+3) {
+        top: 16rem;
+    }
+    &:nth-of-type(4n) {
+        top: 19rem;
+    }
+}

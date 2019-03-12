@@ -14,73 +14,19 @@ body {
     height: auto;
 }
 
-@import 'partials/header';
-@import 'partials/aside';
-
-
-.flex {
-    display: flex;
-    width: 100%;
-}
-
 main {
     width: 100%;
     min-height: 100vh;
+    padding-top: 10rem;
 }
 
-article {
-    position: sticky;
-    background-color: white;
-    padding: 0 0 7rem 0;
-    max-height: 30rem;
+@import 'partials/header';
+@import 'partials/aside';
+@import 'partials/article';
 
-    .lines {
-        position: relative;
-        top: -9.9vw;
-        margin-bottom: -9.9vw;
-        width: 100%;
-        pointer-events: none;
-    }
 
-    a {
-        color: black;
-    }
 
-    h2 {
-        display: inline-block;
-        transform: rotate($angle);
-        transform-origin: top left;
-        padding: 0 0.75rem 0.5rem 0.5rem;
-        background-color: white;
-        position: relative;
-        top: -2.3rem;
-        left: 1rem;
-        @include font('script');
-        font-size: 1.5rem;
 
-        &:hover {
-            background-color: $alt-color;
-        }
-    }
 
-    .cont {
-        padding-left: 5rem;
-        width: 60%;
-        transform: rotate(3deg);
-    }
-
-    &:nth-of-type(4n+1) {
-        top: 10rem;
-    }
-    &:nth-of-type(4n+2) {
-        top: 12rem;
-    }
-    &:nth-of-type(4n+3) {
-        top: 14rem;
-    }
-    &:nth-of-type(4n) {
-        top: 16rem;
-    }
-}
 
 @import 'base/fonts';
