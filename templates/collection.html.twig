@@ -6,10 +6,10 @@
 </svg>
 <nav class="mini-nav">
     <ul>
-    {% set types = page.slug == 'blog' ? ['billet', 'brève', 'notification'] : ['texte', 'son', 'gallerie', 'vidéo'] %}
+    {% set types = page.slug == 'blog' ? ['post', 'short', 'notice'] : ['text', 'sound', 'gallery', 'video'] %}
     {% for type in types %}
         <li class="{{ type }}">
-            <a href="{{ page.url|rtrim('/') }}/type{{ config.system.param_sep }}{{ type }}">{{ type }}</a>
+            <a href="{{ page.url|rtrim('/') }}/type{{ config.system.param_sep }}{{ type }}">{{ ('TYPES.' ~ (type|upper))|t }}</a>
         </li>
     {% endfor %}
     </ul>

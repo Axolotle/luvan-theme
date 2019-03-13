@@ -3,17 +3,17 @@ article {
     background-color: white;
     min-height: 5rem;
 
-    &.billet {
+    &.post {
         h2 {
             background-color: $alt-color2;
         }
     }
-    &.brève {
+    &.short {
         h2 {
             background-color: $alt-color;
         }
     }
-    &.notification {
+    &.notice {
         h2 {
             background-color: $alt-color3;
         }

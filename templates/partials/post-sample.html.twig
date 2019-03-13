@@ -5,7 +5,7 @@
         <use xlink:href="#line-{{ random(3) }}" />
     </svg>
 
-{% if type != 'brève' and type != 'notification' %}
+{% if type != 'short' and type != 'notice' %}
     <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
     <div class="content">
         <time datetime="{{ post.date|date("c") }}">

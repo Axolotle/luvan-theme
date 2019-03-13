@@ -62,17 +62,17 @@ header {
                     position: relative;
                 }
 
-                &.billet {
+                &.post {
                     &::before, a:hover {
                         background-color: $alt-color2;
                     }
                 }
-                &.brève {
+                &.short {
                     &::before, a:hover {
                         background-color: $alt-color;
                     }
                 }
-                &.notification {
+                &.notice {
                     &::before, a:hover {
                         background-color: $alt-color3;
                     }

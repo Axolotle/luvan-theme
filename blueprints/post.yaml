@@ -16,9 +16,9 @@ form:
                   type: select
                   label: type
                   options:
-                    'billet': 'billet'
-                    'brève': 'brève'
-                    'notification': 'notification'
+                    'post': TYPES.POST
+                    'short': TYPES.SHORT
+                    'notice': TYPES.NOTICE
 
         options:
           fields:

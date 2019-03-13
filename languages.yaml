@@ -11,3 +11,7 @@ fr:
         TITLE_HELP: Le titre du billet
         TYPE: Type de billet
         TYPE: Choisir un type de billet pour adapter l'affichage
+    TYPES:
+      POST: Billet
+      SHORT: Brève
+      NOTICE: Annonce
