@@ -4,13 +4,11 @@ article {
     min-height: 5rem;
 
     &.billet {
-
         h2 {
             background-color: $alt-color2;
         }
     }
     &.brève {
-        height: 0;
         h2 {
             background-color: $alt-color;
         }

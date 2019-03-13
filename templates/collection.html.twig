@@ -1,11 +1,15 @@
 {% extends 'default.html.twig' %}
 
 {% block nav_extra %}
-<nav>
-    <ul class="categories">
-    {% for category in taxonomy.getTaxonomyItemKeys('type') %}
-        <li>
-            <a href="{{ blog.url|rtrim('/') }}/type{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
+<svg aria-hidden="true" class="lines" viewBox="0 0 50.8 14.9">
+    <use xlink:href="#mini-nav" />
+</svg>
+<nav class="mini-nav">
+    <ul>
+    {% set types = page.slug == 'blog' ? ['billet', 'brève', 'notification'] : ['texte', 'son', 'gallerie', 'vidéo'] %}
+    {% for type in types %}
+        <li class="{{ type }}">
+            <a href="{{ page.url|rtrim('/') }}/type{{ config.system.param_sep }}{{ type }}">{{ type }}</a>
         </li>
     {% endfor %}
     </ul>
@@ -16,7 +20,6 @@
 
 {% for post in page.collection.visible %}
 {% include 'partials/post-sample.html.twig' with {'post':post} %}
-    {{ dump(post)}}
 {% endfor %}
 
 {% if page.collection.visible.params.pagination %}

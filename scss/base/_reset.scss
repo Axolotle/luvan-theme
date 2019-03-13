@@ -4,6 +4,10 @@
     font-family: $font, monospace;
     font-size: 1.2em;
     color: $text-color;
+
+    @media (max-width: 1200px) {
+        font-size: 1em;
+    }
 }
 
 html, body, div, span, applet, object, iframe,
@@ -82,16 +86,12 @@ a {
     color: $text-color;
 }
 
-li::before {
-    content: '- ';
-}
-
 ::-moz-selection {
-    background-color: #b0b0b0;
+    background-color: $grey;
     color: white;
 }
 
 ::selection {
-    background-color: #b0b0b0;
+    background-color: $grey;
     color: white;
 }
