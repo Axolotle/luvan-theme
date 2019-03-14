@@ -25,7 +25,7 @@ class Luvan extends Theme
 
     public function onAdminCreatePageFrontmatter(Event $event)
     {
-        if ($event['data']['name'] === 'post' ) {
+        if ($event['data']['name'] === 'post' or $event['data']['name'] === 'publication' ) {
             $header = $event['header'];
             if (!isset($header['taxonomy']['type'])) {
                 $header['taxonomy']['type'] = $event['data']['type'];
