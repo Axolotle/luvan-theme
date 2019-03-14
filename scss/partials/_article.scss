@@ -3,17 +3,17 @@ article {
     background-color: white;
     min-height: 5rem;
 
-    &.post {
+    &.post, &.text {
         h2 {
             background-color: $alt-color2;
         }
     }
-    &.short {
+    &.short, &.sound {
         h2 {
             background-color: $alt-color;
         }
     }
-    &.notice {
+    &.notice, &.gallery {
         h2 {
             background-color: $alt-color3;
         }
@@ -31,7 +31,7 @@ article {
         display: inline-block;
         position: relative;
         top: -2.3rem;
-        left: 1rem;
+        left: 3rem;
         transform: rotate($angle);
         transform-origin: top left;
 
@@ -57,24 +57,38 @@ article {
             text-align: right;
         }
 
-        .next {
+        .moar {
             background-color: white;
+            border: $stroke-w solid $alt-color3;
             padding: 0.5rem 1rem;
             position: absolute;
             bottom: 75px;
         }
     }
 
+    .gallery {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        img {
+            display: inline;
+            max-width: 23%;
+            height: 100%;
+            margin-bottom: 1rem;
+        }
+    }
+
     &:nth-of-type(4n+1) {
-        top: 10rem;
+        top: 7rem;
     }
     &:nth-of-type(4n+2) {
-        top: 13rem;
+        top: 10rem;
     }
     &:nth-of-type(4n+3) {
-        top: 16rem;
+        top: 13rem;
     }
     &:nth-of-type(4n) {
-        top: 19rem;
+        top: 16rem;
     }
 }

@@ -17,9 +17,8 @@
 {% endblock %}
 
 {% block main %}
-
-{% for post in page.collection.visible %}
-{% include 'partials/post-sample.html.twig' with {'post':post} %}
+{% for item in page.collection.visible %}
+{% include 'partials/item-sample.html.twig' with {'item': item, 'type': item.header.taxonomy.type} %}
 {% endfor %}
 
 {% if page.collection.visible.params.pagination %}

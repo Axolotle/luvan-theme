@@ -62,17 +62,17 @@ header {
                     position: relative;
                 }
 
-                &.post {
+                &.post, &.text {
                     &::before, a:hover {
                         background-color: $alt-color2;
                     }
                 }
-                &.short {
+                &.short, &.sound {
                     &::before, a:hover {
                         background-color: $alt-color;
                     }
                 }
-                &.notice {
+                &.notice, &.gallery {
                     &::before, a:hover {
                         background-color: $alt-color3;
                     }

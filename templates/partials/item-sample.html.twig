@@ -1,0 +1,37 @@
+<article class="{{ type }}">
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+        <use xlink:href="#line-{{ random(3) }}" />
+    </svg>
+
+{% if type != 'short' and type != 'notice' %}
+    <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+    <div class="content">
+        <time datetime="{{ item.date|date("c") }}">
+            <span>{{ item.date|date("d") }}</span>
+            <em>{{ 'MONTHS_OF_THE_YEAR_ABBR'|ta(item.date|date('n') - 1) }}</em>
+            <span>{{ item.date|date("Y") }}</span>
+        </time>
+
+        {% if type == 'gallery' %}
+        <div class="gallery">
+            {% for image in item.media.images|slice(0, 8) %}
+                {{image.cropZoom(400, 300).html('Sample Image')}}
+            {% endfor %}
+            {% if item.summary != item.content or type == 'gallery' %}
+            <p class="moar"><a href="{{ item.url }}">{{ 'CONTINUE_WATCHING'|t }}</a></p>
+            {% endif %}
+        </div>
+        {% else %}
+        <div>
+            {{ item.summary != item.content ? item.summary : item.content }}
+            {% if item.summary != item.content or type == 'gallery' %}
+            <p class="moar"><a href="{{ item.url }}">{{ 'CONTINUE_READING'|t }}</a></p>
+            {% endif %}
+        </div>
+        {% endif %}
+
+    </div>
+{% else %}
+    <h2 class="{{ type }}"><span>{{ item.content|slice(3, item.content|length - 7) }}</span></h2>
+{% endif %}
+</article>

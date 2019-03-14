@@ -1,0 +1,27 @@
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            taxonomies:
+              type: section
+              title: PLUGIN_ADMIN.TAXONOMIES
+              underline: true
+
+              fields:
+                header.taxonomy.type:
+                  type: select
+                  label: type
+                  options:
+                    'text': TYPES.TEXT
+                    'sound': TYPES.SOUND
+                    'gallery': TYPES.GALLERY
+                    'video': TYPES.VIDEO
+
+        options:
+          fields:
+            taxonomies:
+              unset@: true
