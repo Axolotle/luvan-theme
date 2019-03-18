@@ -44,7 +44,9 @@ footer, header, hgroup, main, menu, nav, section {
 
 html {
 	width: 100%;
+    min-height: 100vh;
     height: auto;
+    font-variant-ligatures: none;
 }
 
 body {

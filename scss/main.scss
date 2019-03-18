@@ -15,15 +15,63 @@ body {
 }
 
 main {
-    width: 80%;
+    width: 100%;
     min-height: 100vh;
-    padding-top: 10rem;
+
+    .lines {
+        width: 100%;
+        height: auto;
+        pointer-events: none;
+    }
+
+    h1, h2 {
+        display: inline-block;
+        position: relative;
+        top: -3rem;
+        left: 3rem;
+        transform: rotate($angle);
+        transform-origin: top left;
+        margin-bottom: -10rem;
+
+        height: 2.5rem;
+        padding: 0 1rem;
+        background-color: white;
+
+        @include font('script');
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        height: 3rem;
+    }
 }
 
 @import 'partials/header';
 @import 'partials/aside';
 @import 'partials/article';
+@import 'partials/content';
 
+.post, .text {
+    h1, h2 {
+        background-color: $alt-color2;
+    }
+}
+.short, .sound {
+    h1, h2 {
+        background-color: $alt-color;
+
+        a:hover, a:focus {
+            background: linear-gradient(to left, transparent, #ffffffff);
+            padding-bottom: 0.75rem;
+        }
+    }
+}
+.notice, .gallery {
+    h1, h2 {
+        background-color: $alt-color3;
+    }
+}
 
 .pagination {
     border-top: $stroke-w solid $main-neg-color;
@@ -59,7 +107,5 @@ main {
         background-color: $alt-color3;
     }
 }
-
-
 
 @import 'base/fonts';

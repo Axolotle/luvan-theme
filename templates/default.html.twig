@@ -4,7 +4,7 @@
 {% include 'svgs/post-sample.html.twig' %}
 
 {% include 'partials/header.html.twig' with {nav_extra: block('nav_extra')} %}
-<main role="main">
+<main role="main" {% if page.header.taxonomy.type %}class="{{ page.header.taxonomy.type }}"{% endif %}>
 {% block main %}
 {% if page.content %}
 {{ page.content }}

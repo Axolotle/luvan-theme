@@ -1,0 +1,76 @@
+.content {
+    width: 100%;
+    padding: 0 35% 3rem 5rem;
+
+    time {
+        display: block;
+        text-align: center;
+    }
+
+    a:hover, a:focus {
+        background-color: $alt-color4;
+    }
+
+    blockquote {
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 2rem;
+
+        p {
+            @include font('bold');
+        }
+
+        border-bottom: $main-neg-color solid $stroke-w/2;
+    }
+
+    sup, sub {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        @include font('bold');
+    }
+    sup {
+        top: -0.5em;
+        a {
+            background-color: $alt-color;
+        }
+    }
+
+    hr {
+        border: 0;
+        border-top: $main-neg-color solid $stroke-w;
+        margin: 5rem 0 3rem 0;
+    }
+
+    img {
+        max-width: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .intro {
+        margin-bottom: 5rem;
+        p {
+            @include font('light');
+            strong {
+                @include font('reg');
+            }
+        }
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        img {
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .center {
+        text-align: center;
+        display: block;
+    }
+}

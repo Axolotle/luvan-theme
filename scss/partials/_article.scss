@@ -1,72 +1,49 @@
 article {
     position: sticky;
-    background-color: white;
+    width: 100%;
+    background-color: $main-color;
     min-height: 5rem;
 
-    &.post, &.text {
-        h2 {
-            background-color: $alt-color2;
-        }
-    }
-    &.short, &.sound {
-        h2 {
-            background-color: $alt-color;
-        }
-    }
-    &.notice, &.gallery {
-        h2 {
-            background-color: $alt-color3;
-        }
+    &:first-of-type {
+        margin-top: 10rem;
     }
 
     .lines {
         position: relative;
-        top: -9.9vw;
-        margin-bottom: -9.9vw;
-        width: 100%;
-        pointer-events: none;
-    }
-
-    h2 {
-        display: inline-block;
-        position: relative;
-        top: -2.3rem;
-        left: 3rem;
-        transform: rotate($angle);
-        transform-origin: top left;
-
-        height: 2.5rem;
-        padding: 0 1rem;
-        background-color: white;
-
-        @include font('script');
-        font-size: 1.5rem;
+        top: -10.7vw;
+        margin-bottom: -10vw;
     }
 
     .content {
-        padding-left: 5rem;
-        padding-bottom: 3rem;
-        width: 60%;
+        margin-top: -3rem;
         transform: rotate(3deg);
+        transform-origin: top left;
         height: 20rem;
         overflow: hidden;
+        padding-right: 50%;
 
-        time {
-            display: block;
-            width: 50%;
-            text-align: right;
-        }
-
-        .moar {
-            background-color: white;
-            border: $stroke-w solid $alt-color3;
-            padding: 0.5rem 1rem;
-            position: absolute;
-            bottom: 75px;
+        blockquote {
+            border-bottom: none;
         }
     }
 
-    .gallery {
+    .moar {
+        position: absolute;
+        bottom: 5rem;
+
+        a {
+            background-color: white;
+            border: $stroke-w solid $alt-color3;
+            padding: 0.5rem 1rem;
+
+            &:hover, &:focus {
+                background-color: $alt-color3;
+            }
+        }
+    }
+
+
+    .gallery-preview {
         margin-top: 2rem;
         display: flex;
         justify-content: space-between;

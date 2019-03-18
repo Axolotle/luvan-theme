@@ -1,47 +1,39 @@
 {% extends 'default.html.twig' %}
 
 {% block main %}
-
-<h1>{{ page.title}}</h1>
-
-{% if page.taxonomy.category %}
-<ul class="categories">
-    <span>Catégories :</span>
-    {% for category in page.taxonomy.category %}
-    <li>
-        <a href="{{ blog.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% if page.taxonomy.tag %}
-<ul class="tags">
-    <span>Tags :</span>
-    {% for tag in page.taxonomy.tag %}
-    <li>
-        <a href="{{ blog.url|rtrim('/') }}/tag{{ config.system.param_sep }}{{ tag }}">{{ tag }}</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endif %}
-
-{{ page.content }}
-
+<svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+    <use xlink:href="#line-{{ random(3) }}" />
+</svg>
+<h1>{{ page.title }}</h1>
+<div class="content">
+    {% if page.header.related.text %}
+    <div class="intro">
+        {{ page.header.related.text|markdown }}
+    </div>
+    {% endif %}
+    {{ page.content }}
+    {% if page.taxonomy.type|first == 'gallery' %}
+    <div class="gallery">
+        {% for image in page.media.images %}
+            {{ image.cropZoom(350,350).html() }}
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
 
 <nav class="pagination">
     <ul>
     {% if not page.isLast %}
         <li class="prev">
-            <a rel="prev" href="{{ page.prevSibling.url }}">PRÉCÈDENT</a>
+            <a rel="prev" href="{{ page.prevSibling.url }}">{{ 'PREV_PUBLICATION'|t }}</a>
         </li>
     {% endif %}
 
     {% if not page.isFirst %}
         <li class="next">
-            <a rel="next" href="{{ page.nextSibling.url }}">SUIVANT</a>
+            <a rel="next" href="{{ page.nextSibling.url }}">{{ 'NEXT_PUBLICATION'|t }}</a>
         </li>
     {% endif %}
     </ul>
 </nav>
-
 {% endblock %}

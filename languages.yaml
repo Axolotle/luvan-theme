@@ -5,6 +5,8 @@ fr:
     CONTINUE_WATCHING: Regarder de plus près
     NEXT_PAGE: Page suivante
     PREV_PAGE: Page précédente
+    NEXT_PUBLICATION: Publication suivante
+    PREV_PUBLICATION: Publication précédente
     BLUEPRINTS:
       BLOG:
         ADD: Ajouter un billet
