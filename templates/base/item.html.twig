@@ -1,4 +1,5 @@
 {% extends 'default.html.twig' %}
+{% set type = page.taxonomy.type|first %}
 
 {% block main %}
 <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
@@ -6,19 +7,19 @@
 </svg>
 <h1>{{ page.title }}</h1>
 <div class="content">
-    {% if page.header.related.text %}
+{% if page.header.related.text %}
     <div class="intro">
         {{ page.header.related.text|markdown }}
     </div>
-    {% endif %}
+{% endif %}
     {{ page.content }}
-    {% if page.taxonomy.type|first == 'gallery' %}
+{% if type == 'gallery' %}
     <div class="gallery">
-        {% for image in page.media.images %}
-            {{ image.cropZoom(350,350).html() }}
-        {% endfor %}
+    {% for image in page.media.images %}
+        <img src="{{ image.cropZoom(350,350).url }}" data-url="{{ image.url }}">
+    {% endfor %}
     </div>
-    {% endif %}
+{% endif %}
 </div>
 
 <nav class="pagination">

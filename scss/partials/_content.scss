@@ -45,7 +45,7 @@
     img {
         max-width: 100%;
 
-        &:hover {
+        &[data-url]:hover {
             cursor: pointer;
         }
     }
@@ -63,6 +63,7 @@
     .gallery {
         display: flex;
         flex-wrap: wrap;
+
         img {
             margin-right: 1rem;
             margin-bottom: 1rem;
@@ -71,6 +72,11 @@
 
     .center {
         text-align: center;
+        display: block;
+    }
+
+    .right {
+        text-align: right;
         display: block;
     }
 }
