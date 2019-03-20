@@ -11,15 +11,18 @@ fr:
       BLOG:
         ADD: Ajouter un billet
         TITLE: Titre du billet
-        TITLE_HELP: Le titre du billet
         TYPE: Type de billet
         TYPE_HELP: Choisir un type de billet pour adapter l'affichage
       PUBLICATION:
         ADD: Ajouter une publication
         TITLE: Titre de la publication
-        TITLE_HELP: Le titre de la publication
         TYPE: Type de publication
         TYPE_HELP: Choisir un type de publication pour adapter l'affichage
+      PROJECT:
+        ADD: Ajouter une page de projet
+        TITLE: Titre du projet
+        TYPE: Type de projet
+        TYPE_HELP: Choisir un type de projet pour adapter l'affichage
     TYPES:
       POST: Billet
       SHORT: Brève
