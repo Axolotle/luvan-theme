@@ -44,6 +44,24 @@ class Luvan extends Theme
         return $list;
     }
 
+    /**
+     * Static method to get children of a page from given route.
+     * Can be used with data-options@ for a `select` field in a page's blueprint.
+     * `data-options@: ['\Grav\Theme\Luvan::children', '/portfolio/books']`
+     *
+     * @param string $route Parent's base route.
+     * @return array
+     */
+    public static function children($route)
+    {
+        $children = Grav::instance()['pages']->find($route)->children();
+        $list = [];
+        foreach ($children as $child) {
+            $list[$child->rawRoute()] = $child->menu();
+        }
+        return $list;
+    }
+
     public function onAdminCreatePageFrontmatter(Event $event)
     {
         if ($event['data']['name'] === 'post' or $event['data']['name'] === 'publication' ) {
