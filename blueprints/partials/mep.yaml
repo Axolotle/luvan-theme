@@ -1,0 +1,57 @@
+form:
+  fields:
+    spacer:
+      type: spacer
+      title: ' '
+      underline: true
+
+    cover:
+      type: section
+      title: Couverture
+
+    header.cover.img:
+      label: Image
+      type: filepicker
+      folder: '@self'
+      preview_images: true
+
+    header.cover.authors:
+      label: Auteurs
+      toggleable: true
+      type: select
+      data-options@: ['\Grav\Theme\Luvan::data', 'people']
+      multiple: true
+      validate:
+        type: array
+
+
+    mep:
+      type: section
+      title: Mise en page
+
+    header.mep_authors:
+      label: Auteurs
+      toggleable: true
+      type: select
+      data-options@: ['\Grav\Theme\Luvan::data', 'people']
+      multiple: true
+      validate:
+        type: array
+
+
+    typo:
+      type: section
+      title: Fonte
+
+    header.typo.name:
+      label: Nom de la fonte
+      type: text
+
+    header.typo.authors:
+      label: Auteurs
+      toggleable: true
+      type: select
+      data-options@: ['\Grav\Theme\Luvan::data', 'people']
+      multiple: true
+      validate:
+        type: array

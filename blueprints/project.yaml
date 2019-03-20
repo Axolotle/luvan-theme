@@ -7,6 +7,18 @@ form:
       fields:
         content:
           fields:
+            header.show_page:
+              type: toggle
+              label: Accessible en tant que page
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+              ordering@: 1
+
+
             header.collaboration:
               label: Collaboration
               toggleable: true
@@ -15,6 +27,14 @@ form:
               multiple: true
               validate:
                 type: array
+
+            spacer:
+              type: spacer
+              title: ' '
+
+            basic_info:
+              type: section
+              title: Informations de base
 
             columns:
               type: columns
@@ -28,6 +48,27 @@ form:
                       label: Date de parution
                       type: datetime
 
+                    header.notes:
+                      label: Notes
+                      type: text
+                      help: le texte s'affichera entre parenthèses dans la liste des projets
+
+                    if_publication:
+                      type: conditional
+                      condition: context.parent().slug in ['books', 'collectives', 'periodics']
+
+                      import@:
+                        type: partials/publisher
+                        context: blueprints://
+
+                    if_theater:
+                      type: conditional
+                      condition: context.parent().slug is same as('theater')
+
+                      import@:
+                        type: partials/theater
+                        context: blueprints://
+
                 column2:
                   type: column
 
@@ -38,15 +79,44 @@ form:
                       placeholder: '[text affiché](url)'
                       help: Exemple : [Chez l'éditeur](https://lavolte.net/livres/susto/)
 
-                    header.notes:
-                      label: Notes
-                      type: text
-                      help: le texte s'affichera entre parenthèses dans la liste des projets
-
                     header.extra_text:
                       label: Texte extra
                       type: text
                       help: le texte s'affichera à la fin dans la liste des projets
+
+                    if_publication:
+                      type: conditional
+                      condition: context.parent().slug in ['books', 'collectives']
+
+                      import@:
+                        type: partials/mep
+                        context: blueprints://
+
+                    if_theater_perf:
+                      type: conditional
+                      condition: context.parent().slug in ['theater', 'performances']
+
+                      import@:
+                        type: partials/representation
+                        context: blueprints://
+
+            if_radio:
+              type: conditional
+              condition: context.parent().slug is same as('radio')
+
+              fields:
+                header.production:
+                  type: text
+                  label: Production (markdown)
+
+            content:
+              type: markdown
+              validate:
+                type: textarea
+
+            header.media_order:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA
 
             extra:
               type: fieldset
@@ -105,12 +175,3 @@ form:
                       type: text
                       label: URL
                       placeholder: Optionnel
-
-            content:
-              type: markdown
-              validate:
-                type: textarea
-
-            header.media_order:
-              type: pagemedia
-              label: PLUGIN_ADMIN.PAGE_MEDIA

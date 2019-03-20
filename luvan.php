@@ -2,6 +2,7 @@
 namespace Grav\Theme;
 
 use Grav\Common\Theme;
+use Grav\Common\Grav;
 use RocketTheme\Toolbox\Event\Event;
 
 class Luvan extends Theme
@@ -23,6 +24,26 @@ class Luvan extends Theme
         ];
     }
 
+    /**
+     * Static method to get `database` page's elements.
+     * Can be used with data-options@ for a `select` field in a page's blueprint.
+     * `data-options@: ['\Grav\Theme\Luvan::data', 'people']`
+     *
+     * @param string $name Frontmatter's key name.
+     * @return array
+     */
+    public static function data($name)
+    {
+        $elems = Grav::instance()['pages']->find('/database')->header()->{$name};
+        $list = [];
+        foreach ($elems as $key => $value) {
+            // For now reference is made by index, so one shouldn't remove
+            // an element in the "database" page.
+            $list[$key] = $elems[$key]['name'];
+        }
+        return $list;
+    }
+
     public function onAdminCreatePageFrontmatter(Event $event)
     {
         if ($event['data']['name'] === 'post' or $event['data']['name'] === 'publication' ) {
@@ -33,4 +54,5 @@ class Luvan extends Theme
             }
         }
     }
+
 }

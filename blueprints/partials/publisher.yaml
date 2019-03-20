@@ -1,0 +1,41 @@
+form:
+  fields:
+    spacer:
+      type: spacer
+      title: ' '
+      underline: true
+
+    publication:
+      type: section
+      title: Édition
+
+    if_collective:
+      type: conditional
+      condition: context.parent().slug is same as('collectives')
+
+      fields:
+        header.book_title:
+          type: text
+          label: Titre du livre collectif
+
+    header.publisher:
+      label: Éditeurs
+      type: select
+      data-options@: ['\Grav\Theme\Luvan::data', 'publishers']
+
+    header.collection:
+      type: text
+      label: Collection
+
+    if_periodic:
+      type: conditional
+      condition: context.parent().slug is same as('periodics')
+
+      fields:
+        header.journal:
+          type: text
+          label: Titre de la revue
+
+        header.number:
+          type: text
+          label: Numéro

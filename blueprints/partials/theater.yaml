@@ -1,0 +1,18 @@
+form:
+  fields:
+    spacer:
+      type: spacer
+      title: ' '
+      underline: true
+
+    theater:
+      type: section
+      title: Compagnie
+
+    header.company:
+      type: text
+      label: Compagnie
+
+    header.season:
+      type: text
+      label: Saison
