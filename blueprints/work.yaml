@@ -1,0 +1,116 @@
+title: piece
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            header.collaboration:
+              label: Collaboration
+              toggleable: true
+              type: select
+              data-options@: ['\Grav\Theme\Luvan::data', 'people']
+              multiple: true
+              validate:
+                type: array
+
+            columns:
+              type: columns
+
+              fields:
+                column1:
+                  type: column
+
+                  fields:
+                    header.date:
+                      label: Date de parution
+                      type: datetime
+
+                column2:
+                  type: column
+
+                  fields:
+                    header.external_link:
+                      label: Lien externe
+                      type: text
+                      placeholder: '[text affiché](url)'
+                      help: Exemple : [Chez l'éditeur](https://lavolte.net/livres/susto/)
+
+                    header.notes:
+                      label: Notes
+                      type: text
+                      help: le texte s'affichera entre parenthèses dans la liste des projets
+
+                    header.extra_text:
+                      label: Texte extra
+                      type: text
+                      help: le texte s'affichera à la fin dans la liste des projets
+
+            extra:
+              type: fieldset
+              title: Extra
+              collapsed: true
+              collapsible: true
+
+              fields:
+                header.nominations:
+                  type: list
+                  label: Nominations
+                  style: vertical
+
+                  fields:
+                    .name:
+                      type: text
+                      label: Nom
+                    .year:
+                      type: text
+                      label: Année
+                    .url:
+                      type: text
+                      label: URL
+                      placeholder: Optionnel
+
+                header.awards:
+                  type: list
+                  label: Prix
+                  style: vertical
+
+                  fields:
+                    .name:
+                      type: text
+                      label: Nom
+                    .year:
+                      type: text
+                      label: Année
+                    .url:
+                      type: text
+                      label: URL
+                      placeholder: Optionnel
+
+                header.grants:
+                  type: list
+                  label: Bourses
+                  style: vertical
+
+                  fields:
+                    .name:
+                      type: text
+                      label: Nom
+                    .year:
+                      type: text
+                      label: Année
+                    .url:
+                      type: text
+                      label: URL
+                      placeholder: Optionnel
+
+            content:
+              type: markdown
+              validate:
+                type: textarea
+
+            header.media_order:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA
