@@ -1,0 +1,63 @@
+form:
+  validation: loose
+
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            disclaimer:
+              type: display
+              markdown: true
+              content: "## ATTENTION ! NE PAS SUPPRIMER D'OBJETS"
+
+            people:
+              type: fieldset
+              title: Personnes
+              collapsed: true
+              collapsible: true
+
+              fields:
+                header.people:
+                  type: list
+                  controls: both
+                  sort: false
+                  style: vertical
+
+                  fields:
+                    .name:
+                      type: text
+                      label: Name
+                    .url:
+                      type: text
+                      label: Website
+
+            publishers:
+              type: fieldset
+              title: Éditeurs
+              collapsed: true
+              collapsible: true
+
+              fields:
+                header.publishers:
+                  type: list
+                  controls: both
+                  sort: false
+                  style: vertical
+
+                  fields:
+                    .name:
+                      type: text
+                      label: Name
+                    .place:
+                      type: text
+                      label: Place
+                    .url:
+                      type: text
+                      label: Website
