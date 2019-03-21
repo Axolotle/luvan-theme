@@ -1,0 +1,97 @@
+{% extends 'default.html.twig' %}
+{% from 'macros.html.twig' import comma_list, lia_list %}
+
+{% set data = pages.find('/database').header %}
+{% set h = page.header %}
+{% set template = page.parent().slug %}
+
+{% block main %}
+<svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+    <use xlink:href="#line-{{ random(3) }}" />
+</svg>
+<h1>{{ page.title }}</h1>
+<section class="infos">
+    <div class="content">
+        <div class="c-right">
+        {% if h.external_link %}
+            {{ h.external_link|markdown }}
+        {% endif %}
+        {% if h.cover.img %}
+            <img src="{{ page.media[h.cover.img].url }}" alt="Couverture de {{ page.title }}"/>
+        {% endif %}
+        </div>
+
+        <div class="c-left">
+        {% if h.book_title %}
+            <p class="">{{ h.book_title }}</p>
+        {% endif %}
+        {% if h.collaboration %}
+            <p class="">Avec {{ comma_list(h.collaboration, data.people) }}</p>
+        {% endif %}
+
+        {% if template in ['theater', 'performances'] %}
+            {% if template is same as('theater') %}
+            <p class="">{{ h.company }}</p>
+            {% if h.season %}<p class="">{{ h.season }}</p>{% endif %}
+            {% endif %}
+            {% if h.representations %}
+            <ul> Représentations :
+            {% for item in header.representations %}
+                <li>{{ [item.place, item.town, item.date ]|join(', ') }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        {% else %}
+            {% if template is same as('radio') %}
+                {% if h.production %}{{ h.production|markdown }}{% endif %}
+            {% elseif template is not same as('digital') %}
+                {% if h.publisher is defined %}
+                    {% set publisher = data.publishers[h.publisher] %}
+                    <p class="">Aux éditions {% if publisher.url %}<a href="{{ publisher.url }}">{{ publisher.name }}</a>{% else %}{{ publisher.name }}{% endif %}.</p>
+                {% endif %}
+                {% if h.collection %}
+                    <p class="">Collection : {{ h.collection }}</p>
+                {% endif %}
+                {% if template is same as('periodics') %}
+                    {% if h.journal %}<p class="">Revue : {{ [h.journal, h.number]|join(', n°') }}</p>{% endif %}
+                {% else %}
+                    {% if h.cover.authors %}
+                        <p class="">Couverture : {{ comma_list(h.cover.authors, data.people) }}.</p>
+                    {% endif %}
+                    {% if h.mep_authors %}
+                        <p class="">Conception graphique : {{ comma_list(h.mep_authors, data.people) }}.</p>
+                    {% endif %}
+                    {% if h.typo %}
+                        <p class="">Caractère : <em>{{ h.typo.name }}</em> de {{ comma_list(h.typo.authors, data.people) }}.</p>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            {% if h.date %}
+                <p class="">Parution : <em>{{ 'MONTHS_OF_THE_YEAR'|ta(h.date|date('n') - 1) }}</em> {{ h.date|date("Y") }}</p>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+</section>
+
+
+{% if page.content %}
+<svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+    <use xlink:href="#line-{{ random(3) }}" />
+</svg>
+<section class="text">
+    <div class="content">
+        {{ page.content }}
+    </div>
+
+</section>
+{% endif %}
+
+    <section class="publications">
+
+    </section>
+
+    <section class="news">
+
+    </section>
+{% endblock %}
