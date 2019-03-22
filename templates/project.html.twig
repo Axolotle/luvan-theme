@@ -6,11 +6,11 @@
 {% set template = page.parent().slug %}
 
 {% block main %}
-<svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
-    <use xlink:href="#line-{{ random(3) }}" />
-</svg>
-<h1>{{ page.title }}</h1>
 <section class="infos">
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+        <use xlink:href="#line-{{ random(3) }}" />
+    </svg>
+    <h1>{{ page.title }}</h1>
     <div class="content">
         <div class="c-right">
         {% if h.external_link %}
@@ -23,19 +23,19 @@
 
         <div class="c-left">
         {% if h.book_title %}
-            <p class="">{{ h.book_title }}</p>
+            <p class="title"><em>{{ h.book_title }}</em></p>
         {% endif %}
         {% if h.collaboration %}
-            <p class="">Avec {{ comma_list(h.collaboration, data.people) }}</p>
+            <p>Avec {{ comma_list(h.collaboration, data.people) }}</p>
         {% endif %}
 
         {% if template in ['theater', 'performances'] %}
             {% if template is same as('theater') %}
-            <p class="">{{ h.company }}</p>
-            {% if h.season %}<p class="">{{ h.season }}</p>{% endif %}
+            <p>{{ h.company }}</p>
+            {% if h.season %}<p>{{ h.season }}</p>{% endif %}
             {% endif %}
             {% if h.representations %}
-            <ul> Représentations :
+            <ul><strong>Représentations :</strong>
             {% for item in header.representations %}
                 <li>{{ [item.place, item.town, item.date ]|join(', ') }}</li>
             {% endfor %}
@@ -47,27 +47,28 @@
             {% elseif template is not same as('digital') %}
                 {% if h.publisher is defined %}
                     {% set publisher = data.publishers[h.publisher] %}
-                    <p class="">Aux éditions {% if publisher.url %}<a href="{{ publisher.url }}">{{ publisher.name }}</a>{% else %}{{ publisher.name }}{% endif %}.</p>
+                    <p>Aux éditions {% if publisher.url %}<a href="{{ publisher.url }}">{{ publisher.name }}</a>{% else %}{{ publisher.name }}{% endif %}.</p>
                 {% endif %}
+                <hr>
                 {% if h.collection %}
-                    <p class="">Collection : {{ h.collection }}</p>
+                    <p><strong>Collection :</strong> {{ h.collection }}</p>
                 {% endif %}
                 {% if template is same as('periodics') %}
-                    {% if h.journal %}<p class="">Revue : {{ [h.journal, h.number]|join(', n°') }}</p>{% endif %}
+                    {% if h.journal %}<p><strong>Revue :</strong> {{ [h.journal, h.number]|join(', n°') }}</p>{% endif %}
                 {% else %}
                     {% if h.cover.authors %}
-                        <p class="">Couverture : {{ comma_list(h.cover.authors, data.people) }}.</p>
+                        <p><strong>Couverture :</strong> {{ comma_list(h.cover.authors, data.people) }}.</p>
                     {% endif %}
                     {% if h.mep_authors %}
-                        <p class="">Conception graphique : {{ comma_list(h.mep_authors, data.people) }}.</p>
+                        <p><strong>Conception graphique :</strong> {{ comma_list(h.mep_authors, data.people) }}.</p>
                     {% endif %}
                     {% if h.typo %}
-                        <p class="">Caractère : <em>{{ h.typo.name }}</em> de {{ comma_list(h.typo.authors, data.people) }}.</p>
+                        <p><strong>Caractère :</strong> <em>{{ h.typo.name }}</em> de {{ comma_list(h.typo.authors, data.people) }}.</p>
                     {% endif %}
                 {% endif %}
             {% endif %}
             {% if h.date %}
-                <p class="">Parution : <em>{{ 'MONTHS_OF_THE_YEAR'|ta(h.date|date('n') - 1) }}</em> {{ h.date|date("Y") }}</p>
+                <p><strong>Parution :</strong> <em>{{ 'MONTHS_OF_THE_YEAR'|ta(h.date|date('n') - 1) }}</em> {{ h.date|date("Y") }}</p>
             {% endif %}
         {% endif %}
         </div>
@@ -76,10 +77,11 @@
 
 
 {% if page.content %}
-<svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
-    <use xlink:href="#line-{{ random(3) }}" />
-</svg>
-<section class="text">
+
+<section class="synopsis">
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+        <use xlink:href="#line-{{ random(3) }}" />
+    </svg>
     <div class="content">
         {{ page.content }}
     </div>

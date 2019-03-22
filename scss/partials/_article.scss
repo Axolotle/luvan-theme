@@ -69,3 +69,24 @@ article {
         top: 16rem;
     }
 }
+
+section {
+    &.infos {
+
+        & + section {
+            margin-top: -10vw;
+        }
+        .lines {
+            use {
+                fill: $alt-color2;
+            }
+        }
+
+    }
+
+    &.synopsis {
+        h2 {
+            margin-left: -5rem;
+        }
+    }
+}

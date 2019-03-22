@@ -11,7 +11,7 @@
         <section>
             <h3>Dernières publications</h3>
             <ul>
-            {% for post in pages.find('/publications').collection.visible|slice(0, 5) %}
+            {% for post in pages.find('/publications').children.visible|slice(0, 5) %}
                 <li>
                     <a href="{{ post.url }}">{{ post.title }}</a>
                 </li>
@@ -22,7 +22,7 @@
         <section>
             <h3>Dernières actualités</h3>
             <ul>
-            {% for post in blog.collection.visible|slice(0, 5) %}
+            {% for post in blog.children.visible|slice(0, 5) %}
                 <li>
                     <a href="{{ post.url }}">{{ post.title }}</a>
                 </li>

@@ -80,3 +80,32 @@
         display: block;
     }
 }
+
+.infos .content {
+    display: flex;
+    justify-content: space-between;
+    background-color: $alt-color2;
+    margin-top: -2.5rem;
+    padding-bottom: 8vw;
+
+    .c-left {
+        padding-top: 2.5rem;
+        width: 60%;
+        order: -1;
+    }
+    .c-right {
+        width: 30%;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    hr {
+        margin: 2rem 0;
+    }
+}

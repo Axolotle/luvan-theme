@@ -7,11 +7,13 @@ use {
     fill: white;
     stroke: black;
 }
-
+html {
+    margin-bottom: -10rem;
+    height: 100%;
+}
 body {
     display: flex;
     width: 100%;
-    height: auto;
 }
 
 main {
@@ -60,11 +62,6 @@ main {
 .short, .sound {
     h1, h2 {
         background-color: $alt-color;
-
-        a:hover, a:focus {
-            background: linear-gradient(to left, transparent, #ffffffff);
-            padding-bottom: 0.75rem;
-        }
     }
 }
 .notice, .gallery {
