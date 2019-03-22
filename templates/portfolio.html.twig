@@ -1,0 +1,51 @@
+{% extends 'default.html.twig' %}
+{% from 'macros.html.twig' import comma_list %}
+
+{% set data = pages.find('/database').header %}
+
+{% block main %}
+{% for medium in page.collection %}
+<section class="projects-list">
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+        <use xlink:href="#line-{{ random(3) }}" />
+    </svg>
+    <h2>{{ medium.title }}</h2>
+    <div class="content">
+        <ul>
+        {% for work in medium.collection %}
+            {% set h = work.header %}
+            <li>
+            {% if medium.slug in ['collectives', 'periodics'] %}
+                {% set title %}« {{ work.title }} »{% endset %}
+            {% else %}
+                {% set title %}<em>{{ work.title }}</em>{% endset %}
+            {% endif %}
+            {% if h.show_page %}<a href="{{ work.url }}">{{ title }}</a>,{% else %}{{ title }},{% endif %}
+            {% if medium.slug in ['collectives', 'periodics'] %}dans <em>{{ h.book_title }}</em>,{% endif %}
+            {% if h.collaboration %}Avec {{ comma_list(h.collaboration, data.people) }},{% endif %}
+
+            {% if medium.slug in ['books', 'collectives', 'periodics'] %}
+                {% if medium.slug is same as('periodic') %}n°{{ h.number }},{% endif %}
+                {% set publisher = data.publishers[h.publisher] %}
+                {{ publisher.name ~ ', ' ~ publisher.place }},
+                {% if h.collection %}« {{ h.collection }} »,{% endif %}
+            {% elseif medium.slug is same as('radio') %}
+                {% if h.production %}{{ h.production|markdown|slice(3, h.production|length) }},{% endif %}
+            {% elseif medium.slug in ['theater', 'performances'] %}
+                {% if medium.slug is same as('theater') %}
+                    {% if h.season %}{{ h.season }},{% endif %}
+                    par {{ h.company }},
+                {% endif %}
+                {% set repr = h.representations|first %}
+                {{ repr.town ~ ', ' ~ repr.place }},
+            {% endif %}
+            {% if h.extra_text %}{{ h.extra_text }},{% endif %}
+            {% if h.notes %}({{ h.notes }}),{% endif %}
+                <em>{{ 'MONTHS_OF_THE_YEAR'|ta(h.date|date('n') - 1) }} {{ h.date|date("Y") }}</em>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endfor %}
+{% endblock %}

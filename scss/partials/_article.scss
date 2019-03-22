@@ -71,6 +71,9 @@ article {
 }
 
 section {
+    &:last-of-type {
+        padding-bottom: 10rem;
+    }
     &.infos {
 
         & + section {

@@ -1,4 +1,3 @@
-title: piece
 extends@: default
 
 form:
@@ -10,7 +9,7 @@ form:
             header.show_page:
               type: toggle
               label: Accessible en tant que page
-              default: 0
+              default: 1
               options:
                 1: PLUGIN_ADMIN.YES
                 0: PLUGIN_ADMIN.NO

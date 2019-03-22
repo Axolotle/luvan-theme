@@ -11,12 +11,12 @@ form:
 
     if_collective:
       type: conditional
-      condition: context.parent().slug is same as('collectives')
+      condition: context.parent().slug in ['collectives', 'periodics']
 
       fields:
         header.book_title:
           type: text
-          label: Titre du livre collectif
+          label: Titre du livre/revue
 
     header.publisher:
       label: Éditeurs
@@ -32,10 +32,6 @@ form:
       condition: context.parent().slug is same as('periodics')
 
       fields:
-        header.journal:
-          type: text
-          label: Titre de la revue
-
         header.number:
           type: text
           label: Numéro

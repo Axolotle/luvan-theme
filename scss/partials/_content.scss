@@ -109,3 +109,20 @@
         margin: 2rem 0;
     }
 }
+
+.projects-list {
+    li {
+        &:not(:last-of-type) {
+            margin-bottom: .75rem;
+        }
+        &::before {
+            content: '~';
+            @include font('bold');
+            position: absolute;
+            margin-left: -1.25rem;
+        }
+    }
+    .content {
+        padding-bottom: 0;
+    }
+}
