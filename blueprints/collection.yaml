@@ -1,1 +1,58 @@
 extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            header.content.items:
+              type: select
+              label: Élements de la collection
+              default: '@self.children.visible'
+              options:
+                '@self.children': 'Tout'
+                '@self.children.visible': 'Visibles'
+
+            header.content.order.by:
+              type: select
+              label: Ordonnés par
+              default: date
+              options:
+                date: Date
+                default: Numéro
+
+            header.content.order.dir:
+              type: select
+              label: Sens
+              default: desc
+              options:
+                desc: Décroissant
+                asc: Croissant
+
+            header.content.pagination:
+              type: toggle
+              label: Activer la pagination
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+            header.content.limit:
+              type: text
+              label: Nombre d'élément par page
+              default: 0
+              validate:
+                type: int
+
+            header.content.url_taxonomy_filters:
+              type: toggle
+              label: Activer la recherche par taxonomies
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
