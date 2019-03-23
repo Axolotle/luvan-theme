@@ -83,13 +83,19 @@ class Luvan extends Theme
 
     public function onAdminCreatePageFrontmatter(Event $event)
     {
+        $header = $event['header'];
+
+        if (!isset($header['date'])) {
+            $header['date'] = date($this->grav['config']->get('system.pages.dateformat.default', 'd-m-Y H:i'));
+        }
+
         if ($event['data']['name'] === 'post' or $event['data']['name'] === 'publication' ) {
-            $header = $event['header'];
             if (!isset($header['taxonomy']['type'])) {
                 $header['taxonomy']['type'] = $event['data']['type'];
-                $event['header'] = $header;
             }
         }
+
+        $event['header'] = $header;
     }
 
 }
