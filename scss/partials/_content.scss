@@ -119,10 +119,14 @@
             content: '~';
             @include font('bold');
             position: absolute;
+            margin-top: 0.5rem;
             margin-left: -1.25rem;
         }
     }
     .content {
         padding-bottom: 0;
+
+        .title {
+            font-size: 1.75rem;        }
     }
 }

@@ -18,27 +18,26 @@ article {
         margin-top: -3rem;
         transform: rotate(3deg);
         transform-origin: top left;
-        height: 20rem;
+        max-height: 30rem;
         overflow: hidden;
         padding-right: 50%;
+        padding-bottom: 15rem;
 
         blockquote {
             border-bottom: none;
         }
     }
 
-    .moar {
+    a.moar {
         position: absolute;
-        bottom: 5rem;
+        bottom: 10rem;
 
-        a {
-            background-color: white;
-            border: $stroke-w solid $alt-color3;
-            padding: 0.5rem 1rem;
+        background-color: white;
+        border: $stroke-w solid $alt-color3;
+        padding: 0.5rem 1rem;
 
-            &:hover, &:focus {
-                background-color: $alt-color3;
-            }
+        &:hover, &:focus {
+            background-color: $alt-color3;
         }
     }
 

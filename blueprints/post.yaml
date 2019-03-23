@@ -12,6 +12,16 @@ form:
                   type: hidden
                   default: post
 
+            if_notice_or_short:
+              type: conditional
+              condition: context.header.taxonomy.type in ['notice', 'short']
+
+              fields:
+                header.alt_title:
+                  type: text
+                  label: Titre affiché (markdown)
+                  style: vertical
+
             header.date:
               label: Date
               type: datetime
@@ -40,3 +50,16 @@ form:
             header.media_order:
               type: pagemedia
               label: PLUGIN_ADMIN.PAGE_MEDIA
+
+            taxonomies:
+              type: section
+              title: PLUGIN_ADMIN.TAXONOMIES
+              underline: true
+
+              fields:
+                header.taxonomy:
+                  type: taxonomy
+                  label: PLUGIN_ADMIN.TAXONOMY
+                  multiple: true
+                  validate:
+                    type: array

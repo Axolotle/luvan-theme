@@ -1,10 +1,12 @@
 <article class="{{ type }}">
-    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
-        <use xlink:href="#line-{{ random(3) }}" />
-    </svg>
-
-{% if type != 'short' and type != 'notice' %}
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25"><use xlink:href="#line-{{ random(3) }}"/></svg>
+{% if type not in ['short', 'notice'] %}
     <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+{% else %}
+{% set alt_title = item.header.alt_title|markdown %}
+    <h2>{{ alt_title|slice(3, alt_title|length - 7) }}</h2>
+{% endif %}
+{% if item.content is not empty or type == 'gallery' %}
     <div class="content">
         <time datetime="{{ item.date|date("c") }}">
             <span>{{ item.date|date("d") }}</span>
@@ -12,24 +14,21 @@
             <span>{{ item.date|date("Y") }}</span>
         </time>
 
-        {% if type == 'gallery' %}
+{%    if type == 'gallery' %}
         <div class="gallery-preview">
-            {% for image in item.media.images|slice(0, 8) %}
-                {{image.cropZoom(400, 300).html('Sample Image')}}
-            {% endfor %}
-            <p class="moar"><a href="{{ item.url }}">{{ 'CONTINUE_WATCHING'|t }}</a></p>
+{%        for image in item.media.images|slice(0, 8) %}
+            {{ image.cropZoom(400, 300).html() }}
+{%        endfor %}
         </div>
-        {% else %}
+        <a class="moar" href="{{ item.url }}">{{ 'CONTINUE_WATCHING'|t }}</a>
+{%    else %}
         <div>
-            {{ item.summary != item.content ? item.summary : item.content }}
-            {% if item.summary != item.content %}
-            <p class="moar"><a href="{{ item.url }}">{{ 'CONTINUE_READING'|t }}</a></p>
-            {% endif %}
+            {{ item.summary }}
+{%        if item.summary != item.content %}
+            <a class="moar" href="{{ item.url }}">{{ 'CONTINUE_READING'|t }}</a>
+{%        endif %}
         </div>
-        {% endif %}
-
+{%    endif %}
     </div>
-{% else %}
-    <h2 class="{{ type }}"><span>{{ item.content|slice(3, item.content|length - 7) }}</span></h2>
 {% endif %}
 </article>
