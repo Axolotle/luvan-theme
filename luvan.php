@@ -62,6 +62,25 @@ class Luvan extends Theme
         return $list;
     }
 
+    /**
+     * Static method to get all projects posted in /portfolio.
+     * Can be used with data-options@ for a `select` field in a page's blueprint.
+     * `data-options@: '\Grav\Theme\Luvan::projects'`
+     *
+     * @return array
+     */
+    public static function projects()
+    {
+        $mediums = Grav::instance()['pages']->find('/portfolio')->children();
+        $list = [];
+        foreach ($mediums as $medium) {
+            foreach ($medium->children() as $project) {
+                $list[$project->rawRoute()] = $project->menu();
+            }
+        }
+        return $list;
+    }
+
     public function onAdminCreatePageFrontmatter(Event $event)
     {
         if ($event['data']['name'] === 'post' or $event['data']['name'] === 'publication' ) {

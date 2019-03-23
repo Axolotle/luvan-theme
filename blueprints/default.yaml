@@ -16,6 +16,7 @@ form:
       active: 1
 
       fields:
+
         content:
           type: tab
           title: PLUGIN_ADMIN.CONTENT
@@ -23,6 +24,11 @@ form:
           fields:
             xss_check:
               type: xss
+
+            hidden:
+              type: hidden
+
+              fields:
 
             header.title:
               type: text
@@ -55,12 +61,6 @@ form:
                   validate:
                     type: bool
 
-                header.date:
-                  type: datetime
-                  label: PLUGIN_ADMIN.DATE
-                  toggleable: true
-                  help: PLUGIN_ADMIN.DATE_HELP
-
                 header.publish_date:
                   type: datetime
                   label: PLUGIN_ADMIN.PUBLISHED_DATE
@@ -80,19 +80,6 @@ form:
                   help: PLUGIN_ADMIN.METADATA_HELP
                   placeholder_key: PLUGIN_ADMIN.METADATA_KEY
                   placeholder_value: PLUGIN_ADMIN.METADATA_VALUE
-
-            taxonomies:
-              type: section
-              title: PLUGIN_ADMIN.TAXONOMIES
-              underline: true
-
-              fields:
-                header.taxonomy:
-                  type: taxonomy
-                  label: PLUGIN_ADMIN.TAXONOMY
-                  multiple: true
-                  validate:
-                    type: array
 
         advanced:
           type: tab

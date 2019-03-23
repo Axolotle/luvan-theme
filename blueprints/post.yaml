@@ -6,21 +6,37 @@ form:
       fields:
         content:
           fields:
-            taxonomies:
-              type: section
-              title: PLUGIN_ADMIN.TAXONOMIES
-              underline: true
-
+            hidden:
               fields:
-                header.taxonomy.type:
-                  type: select
-                  label: type
-                  options:
-                    'post': TYPES.POST
-                    'short': TYPES.SHORT
-                    'notice': TYPES.NOTICE
+                header.taxonomy.page_type:
+                  type: hidden
+                  default: post
 
-        options:
-          fields:
-            taxonomies:
-              unset@: true
+            header.date:
+              label: Date
+              type: datetime
+
+            header.taxonomy.type:
+              type: select
+              label: type
+              options:
+                'post': TYPES.POST
+                'short': TYPES.SHORT
+                'notice': TYPES.NOTICE
+
+            header.taxonomy.project:
+              type: select
+              label: Projets relatifs
+              data-options@: '\Grav\Theme\Luvan::projects'
+              multiple: true
+              validate:
+                type: array
+
+            content:
+              type: markdown
+              validate:
+                type: textarea
+
+            header.media_order:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA

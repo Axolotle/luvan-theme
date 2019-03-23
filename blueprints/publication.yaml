@@ -6,22 +6,55 @@ form:
       fields:
         content:
           fields:
+            hidden:
+              fields:
+                header.taxonomy.page_type:
+                  type: hidden
+                  default: post
+
+            header.taxonomy.page_type:
+              type: hidden
+              default: post
+
+            header.date:
+              label: Date
+              type: datetime
+
+            header.taxonomy.type:
+              type: select
+              label: Type
+              options:
+                'text': TYPES.TEXT
+                'sound': TYPES.SOUND
+                'gallery': TYPES.GALLERY
+                'video': TYPES.VIDEO
+
+            header.taxonomy.project:
+              type: select
+              label: Projets relatifs
+              data-options@: '\Grav\Theme\Luvan::projects'
+              multiple: true
+              validate:
+                type: array
+
+            content:
+              type: markdown
+              validate:
+                type: textarea
+
+            header.media_order:
+              type: pagemedia
+              label: PLUGIN_ADMIN.PAGE_MEDIA
+
             taxonomies:
               type: section
               title: PLUGIN_ADMIN.TAXONOMIES
               underline: true
 
               fields:
-                header.taxonomy.type:
-                  type: select
-                  label: type
-                  options:
-                    'text': TYPES.TEXT
-                    'sound': TYPES.SOUND
-                    'gallery': TYPES.GALLERY
-                    'video': TYPES.VIDEO
-
-        options:
-          fields:
-            taxonomies:
-              unset@: true
+                header.taxonomy:
+                  type: taxonomy
+                  label: PLUGIN_ADMIN.TAXONOMY
+                  multiple: true
+                  validate:
+                    type: array
