@@ -18,10 +18,10 @@
             {% if medium.slug in ['collectives', 'periodics'] %}
                 {% set title %}« {{ work.title }} »{% endset %}
             {% else %}
-                {% set title %}<em>{{ work.title }}</em>{% endset %}
+                {% set title %}<em class="title">{{ work.title }}</em>{% endset %}
             {% endif %}
             {% if h.show_page %}<a href="{{ work.url }}">{{ title }}</a>,{% else %}{{ title }},{% endif %}
-            {% if medium.slug in ['collectives', 'periodics'] %}dans <em>{{ h.book_title }}</em>,{% endif %}
+            {% if medium.slug in ['collectives', 'periodics'] %}dans <em class="title">{{ h.book_title }}</em>,{% endif %}
             {% if h.collaboration %}Avec {{ comma_list(h.collaboration, data.people) }},{% endif %}
 
             {% if medium.slug in ['books', 'collectives', 'periodics'] %}
@@ -30,7 +30,7 @@
                 {{ publisher.name ~ ', ' ~ publisher.place }},
                 {% if h.collection %}« {{ h.collection }} »,{% endif %}
             {% elseif medium.slug is same as('radio') %}
-                {% if h.production %}{{ h.production|markdown|slice(3, h.production|length) }},{% endif %}
+                {% if h.production %}{{ h.production }},{% endif %}
             {% elseif medium.slug in ['theater', 'performances'] %}
                 {% if medium.slug is same as('theater') %}
                     {% if h.season %}{{ h.season }},{% endif %}

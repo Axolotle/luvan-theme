@@ -4,6 +4,7 @@ namespace Grav\Theme;
 use Grav\Common\Theme;
 use Grav\Common\Grav;
 use RocketTheme\Toolbox\Event\Event;
+use Grav\Plugin\Admin\Utils;
 
 class Luvan extends Theme
 {
@@ -84,15 +85,20 @@ class Luvan extends Theme
     public function onAdminCreatePageFrontmatter(Event $event)
     {
         $header = $event['header'];
+        dump('yolo');
 
         if (!isset($header['date'])) {
             $header['date'] = date($this->grav['config']->get('system.pages.dateformat.default', 'd-m-Y H:i'));
         }
 
         if ($event['data']['name'] === 'post' or $event['data']['name'] === 'publication' ) {
-            if (!isset($header['taxonomy']['type'])) {
-                $header['taxonomy']['type'] = $event['data']['type'];
-            }
+            $header['taxonomy']['type'] = $event['data']['type'];
+        }
+
+        if ($event['data']['name'] === 'project') {
+            $raw_route = $event['data']['route'] .'/'. Utils::slug($event['data']['title']);
+            $header['content']['items']['@taxonomy']['project'] = $raw_route;
+            $header['news']['items']['@taxonomy']['project'] = $raw_route;
         }
 
         $event['header'] = $header;

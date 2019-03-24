@@ -10,7 +10,7 @@ form:
               fields:
                 header.taxonomy.page_type:
                   type: hidden
-                  default: post
+                  default: publication
 
             header.taxonomy.page_type:
               type: hidden
@@ -46,15 +46,9 @@ form:
               type: pagemedia
               label: PLUGIN_ADMIN.PAGE_MEDIA
 
-            taxonomies:
-              type: section
-              title: PLUGIN_ADMIN.TAXONOMIES
-              underline: true
-
-              fields:
-                header.taxonomy:
-                  type: taxonomy
-                  label: PLUGIN_ADMIN.TAXONOMY
-                  multiple: true
-                  validate:
-                    type: array
+            header.taxonomy.tag:
+              type: selectize
+              label: Tags
+              multiple: true
+              validate:
+                type: commalist

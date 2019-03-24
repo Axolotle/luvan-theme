@@ -26,7 +26,7 @@ form:
               type: xss
 
             hidden:
-              type: hidden
+              type: section
 
               fields:
 

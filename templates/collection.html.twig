@@ -1,24 +1,28 @@
 {% extends 'default.html.twig' %}
 
 {% block nav_extra %}
-<svg aria-hidden="true" class="lines" viewBox="0 0 50.8 14.9">
-    <use xlink:href="#mini-nav" />
-</svg>
-<nav class="mini-nav">
-    <ul>
-    {% set types = page.slug == 'blog' ? ['post', 'short', 'notice'] : ['text', 'sound', 'gallery', 'video'] %}
-    {% for type in types %}
-        <li class="{{ type }}">
-            <a href="{{ page.url|rtrim('/') }}/type{{ config.system.param_sep }}{{ type }}">{{ ('TYPES.' ~ (type|upper))|t }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-</nav>
+    <svg aria-hidden="true" class="lines" viewBox="0 0 50.8 14.9">
+        <use xlink:href="#mini-nav" />
+    </svg>
+    <nav class="mini-nav">
+        <ul>
+{%        set types = page.slug == 'blog' ? ['post', 'short', 'notice'] : ['text', 'sound', 'gallery', 'video'] %}
+{%        for type in types %}
+            <li class="{{ type }}">
+                <a href="{{ page.url|rtrim('/') }}/type{{ config.system.param_sep }}{{ type }}">{{ ('TYPES.' ~ (type|upper))|t }}</a>
+            </li>
+{%        endfor %}
+        </ul>
+    </nav>
 {% endblock %}
 
 {% block main %}
 {% for item in page.collection.visible %}
-{% include 'partials/item-sample.html.twig' with {'item': item, 'type': item.header.taxonomy.type} %}
+    {% set type = item.header.taxonomy.type %}
+    <article class="oblique {{ type }}">
+        <svg aria-hidden="true" class="lines" viewBox="0 0 200 25"><use xlink:href="#line-{{ random(3) }}" /></svg>
+{%      include 'partials/item-sample.html.twig' with {'item': item, 'type': type} %}
+    </article>
 {% endfor %}
 
 {% if page.collection.visible.params.pagination %}

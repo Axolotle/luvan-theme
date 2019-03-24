@@ -4,6 +4,13 @@ article {
     background-color: $main-color;
     min-height: 5rem;
 
+    &.oblique {
+        .content {
+            transform: rotate(3deg);
+            transform-origin: top left;
+        }
+    }
+
     &:first-of-type {
         margin-top: 10rem;
     }
@@ -16,8 +23,6 @@ article {
 
     .content {
         margin-top: -3rem;
-        transform: rotate(3deg);
-        transform-origin: top left;
         max-height: 30rem;
         overflow: hidden;
         padding-right: 50%;
@@ -31,13 +36,15 @@ article {
     a.moar {
         position: absolute;
         bottom: 10rem;
-
+        text-decoration: none;
         background-color: white;
-        border: $stroke-w solid $alt-color3;
-        padding: 0.5rem 1rem;
+        border: $stroke-w solid $alt-color4;
+        line-height: 1.3rem;
+        height: 2rem;
+        padding: 0 .75rem;
 
         &:hover, &:focus {
-            background-color: $alt-color3;
+            background-color: $alt-color4;
         }
     }
 
@@ -47,6 +54,7 @@ article {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+
         img {
             display: inline;
             max-width: 23%;
