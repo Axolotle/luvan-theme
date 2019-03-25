@@ -1,8 +1,8 @@
 {% if type not in ['short', 'notice'] %}
-    <h2><a href="{{ item.url }}">{{ item.title }}</a></h2>
+    <h1 class="oblique {{ type }} {{ classes }}"><a href="{{ item.url }}">{{ item.title }}</a></h1>
 {% else %}
 {% set alt_title = item.header.alt_title|markdown %}
-    <h2>{{ alt_title|slice(3, alt_title|length - 7) }}</h2>
+    <h1 class="oblique {{ type }} {{ classes }}">{{ alt_title|slice(3, alt_title|length - 7) }}</h1>
 {% endif %}
 {% if item.content is not empty or type == 'gallery' %}
     <div class="content">

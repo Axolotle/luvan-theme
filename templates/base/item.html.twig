@@ -2,39 +2,30 @@
 {% set type = page.taxonomy.type|first %}
 
 {% block main %}
-<svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
-    <use xlink:href="#line-{{ random(3) }}" />
-</svg>
-<h1>{{ page.title }}</h1>
-<div class="content">
-{% if page.header.related.text %}
-    <div class="intro">
-        {{ page.header.related.text|markdown }}
-    </div>
-{% endif %}
-    {{ page.content }}
-{% if type == 'gallery' %}
-    <div class="gallery">
-    {% for image in page.media.images %}
-        <img src="{{ image.cropZoom(350,350).url }}" data-url="{{ image.url }}">
-    {% endfor %}
-    </div>
-{% endif %}
-</div>
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+        <use xlink:href="#line-{{ random(3) }}" />
+    </svg>
+    <h1 class="oblique aligned big {{ type }}">{{ page.title }}</h1>
 
-<nav class="pagination">
-    <ul>
-    {% if not page.isLast %}
-        <li class="prev">
-            <a rel="prev" href="{{ page.prevSibling.url }}">{{ 'PREV_PUBLICATION'|t }}</a>
-        </li>
-    {% endif %}
+    <div class="content">
+        {{ page.content }}
+{%    if type == 'gallery' %}
+        <div class="gallery">
+{%        for image in page.media.images %}
+            <img src="{{ image.cropZoom(350,350).url }}" data-url="{{ image.url }}">
+{%        endfor %}
+        </div>
+{%    endif %}
+    </div>
 
-    {% if not page.isFirst %}
-        <li class="next">
-            <a rel="next" href="{{ page.nextSibling.url }}">{{ 'NEXT_PUBLICATION'|t }}</a>
-        </li>
-    {% endif %}
-    </ul>
-</nav>
+    <nav class="pagination">
+        <ul>
+{%        if not page.isLast %}
+            <li class="prev"><a rel="prev" href="{{ page.prevSibling.url }}">{{ 'PREV_PUBLICATION'|t }}</a></li>
+{%        endif %}
+{%        if not page.isFirst %}
+            <li class="next"><a rel="next" href="{{ page.nextSibling.url }}">{{ 'NEXT_PUBLICATION'|t }}</a></li>
+{%        endif %}
+        </ul>
+    </nav>
 {% endblock %}

@@ -4,11 +4,17 @@
 {% include 'svgs/post-sample.html.twig' %}
 
 {% include 'partials/header.html.twig' with {nav_extra: block('nav_extra')} %}
-<main role="main" {% if page.header.taxonomy.type %}class="{{ page.header.taxonomy.type }}"{% endif %}>
+<main role="main">
 {% block main %}
-{% if page.content %}
-{{ page.content }}
-{% endif %}
+    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
+        <use xlink:href="#line-{{ random(3) }}" />
+    </svg>
+    <h1 class="aligned">{{ page.title }}</h1>
+    <div class="content">
+{%    if page.content %}
+        {{ page.content }}
+{%    endif %}
+    </div>
 {% endblock %}
 </main>
 {% include 'partials/aside.html.twig' %}

@@ -3,13 +3,9 @@
         <h1>{{ config.site.title }}</h1>
         <nav class="main-nav" role="navigation" aria-label="Menu principal">
             <ul>
-                {% for p in pages.children.visible %}
-                <li>
-                    <a href="{{ p.url }}" {% if p.active %}aria-current="page"{% endif %}>
-                        {{ p.menu }}
-                    </a>
-                </li>
-                {% endfor %}
+{%            for p in pages.children.visible %}
+                <li><a href="{{ p.url }}" {% if p.active %}aria-current="page"{% endif %}>{{ p.menu }}</a></li>
+{%            endfor %}
             </ul>
         </nav>
         {{ nav_extra }}

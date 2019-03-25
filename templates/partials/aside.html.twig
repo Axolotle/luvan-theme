@@ -11,22 +11,23 @@
         <section>
             <h3>Dernières publications</h3>
             <ul>
-            {% for post in pages.find('/publications').children.visible|slice(0, 5) %}
-                <li>
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                </li>
-            {% endfor %}
+{%            for post in pages.find('/publications').children.visible|slice(0, 5) %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{%            endfor %}
             </ul>
         </section>
 
         <section>
             <h3>Dernières actualités</h3>
             <ul>
-            {% for post in blog.children.visible|slice(0, 5) %}
-                <li>
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                </li>
-            {% endfor %}
+{%            for post in blog.children.visible|slice(0, 5) %}
+{%              if post.header.taxonomy.type is same as('post') %}
+                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+{%              else %}
+{%              set alt_title = post.header.alt_title|markdown %}
+                <li>{{ alt_title|slice(3, alt_title|length - 7) }}</li>
+{%              endif %}
+{%            endfor %}
             </ul>
         </section>
     </div>

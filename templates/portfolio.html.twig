@@ -4,12 +4,13 @@
 {% set data = pages.find('/database').header %}
 
 {% block main %}
+<h1>{{ page.title }}</h1>
 {% for medium in page.collection %}
 <section class="projects-list">
     <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
         <use xlink:href="#line-{{ random(3) }}" />
     </svg>
-    <h2>{{ medium.title }}</h2>
+    <h1 class="oblique aligned">{{ medium.title }}</h1>
     <div class="content">
         <ul>
         {% for work in medium.collection %}

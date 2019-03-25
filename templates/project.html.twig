@@ -6,11 +6,12 @@
 {% set template = page.parent().slug %}
 
 {% block main %}
+<svg aria-hidden="true" class="lines colored" viewBox="0 0 200 25">
+    <use xlink:href="#line-{{ random(3) }}" />
+</svg>
+<h1 class="oblique aligned big">{{ page.title }}</h1>
+
 <section class="infos">
-    <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
-        <use xlink:href="#line-{{ random(3) }}" />
-    </svg>
-    <h1>{{ page.title }}</h1>
     <div class="content">
         <div class="c-right">
         {% if h.external_link %}
@@ -94,10 +95,10 @@
     <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
         <use xlink:href="#line-{{ random(3) }}" />
     </svg>
-    <h2>Publications Relatives</h2>
+    <h1 class="oblique aligned big">Publications Relatives</h1>
 {% for item in publications %}
     {% set type = item.header.taxonomy.type %}
-    <article class="{{ type }}">
+    <article>
 {% include 'partials/item-sample.html.twig' with {'item': item, 'type': type} %}
     </article>
 {% endfor %}
@@ -112,9 +113,12 @@
     <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
         <use xlink:href="#line-{{ random(3) }}" />
     </svg>
-    <h2>Actualités Relatives</h2>
+    <h1 class="oblique aligned big">Actualités Relatives</h1>
 {% for item in news %}
-    {% include 'partials/item-mini-sample.html.twig' with {'item': item, 'type': item.header.taxonomy.type} %}
+    {% set type = item.header.taxonomy.type %}
+    <article class="{{ type }}">
+        {% include 'partials/item-sample.html.twig' with {'item': item, 'type': item.header.taxonomy.type} %}
+    </article>
 {% endfor %}
 </section>
 {% endif %}

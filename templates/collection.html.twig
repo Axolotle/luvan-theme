@@ -17,11 +17,12 @@
 {% endblock %}
 
 {% block main %}
+    <h1>{{ page.title }}</h1>
 {% for item in page.collection.visible %}
     {% set type = item.header.taxonomy.type %}
-    <article class="oblique {{ type }}">
+    <article class="oblique">
         <svg aria-hidden="true" class="lines" viewBox="0 0 200 25"><use xlink:href="#line-{{ random(3) }}" /></svg>
-{%      include 'partials/item-sample.html.twig' with {'item': item, 'type': type} %}
+{%      include 'partials/item-sample.html.twig' with {'item': item, 'type': type, 'classes': 'aligned'} %}
     </article>
 {% endfor %}
 
