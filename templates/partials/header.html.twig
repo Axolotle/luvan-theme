@@ -1,8 +1,9 @@
 <header role="banner">
     <div class="container">
         <h1>{{ config.site.title }}</h1>
-        <nav class="main-nav" role="navigation" aria-label="Menu principal">
-            <ul>
+        <nav class="main-nav" aria-label="Menu principal">
+            <button id="toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+            <ul id="menu">
 {%            for p in pages.children.visible %}
                 <li><a href="{{ p.url }}" {% if p.active %}aria-current="page"{% endif %}>{{ p.menu }}</a></li>
 {%            endfor %}

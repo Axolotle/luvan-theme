@@ -22,3 +22,12 @@ document.querySelectorAll('img[data-url]').forEach(img => {
         displayImg(e.target);
     })
 });
+
+document.getElementById('toggle').addEventListener('click', function () {
+    var menu = document.getElementById('menu');
+    if (menu.classList.contains('is-active'))
+        this.setAttribute('aria-expanded', 'false');
+    else
+        this.setAttribute('aria-expanded', 'true');
+    menu.classList.toggle('is-active');
+});
