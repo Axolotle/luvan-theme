@@ -1,33 +1,8 @@
 aside {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    right: 0;
-    width: 30vw;
-    height: 100%;
-    clip-path: polygon(calc(40% - 3px) 0, 100% 0, 100% 100%,  calc(2% - 3px) 100%);
-
-    .shape {
-        float: left;
-        height: 100vh;
-        width: 40%;
-        background: black;
-        margin-right: 1rem;
-
-        shape-outside: polygon(0 0, 100% 0, 5% 100%, 0% 100%);
-        shape-margin: 1rem;
-        clip-path: polygon(0 0, 100% 0, 5% 100%, 0% 100%);
-    }
-
     .container {
         width: 100%;
-        height: 100%;
-        padding: 4rem;
         background-color: $alt-color;
-    }
-
-    section:not(:first-of-type) {
-        margin-top: 2rem;
+        padding: 2rem;
     }
 
     h3 {
@@ -37,17 +12,56 @@ aside {
         padding: .10rem .75rem .4rem .75rem;
     }
 
-    p {
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
-        hyphens: auto;
-    }
-
     ul {
         margin-top: 1rem;
 
         li::before {
             content: '- ';
+        }
+    }
+
+    @media (orientation: portrait), (max-width: 800px) {
+        section:not(:first-of-type) {
+            display: none;
+        }
+        .shape {
+            display: none;
+        }
+    }
+
+    @media (orientation: landscape) and (min-width: 800px)  {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        width: 30vw;
+        height: 100%;
+        clip-path: polygon(calc(40% - 3px) 0, 100% 0, 100% 100%,  calc(2% - 3px) 100%);
+
+        .shape {
+            float: left;
+            height: 100vh;
+            width: 40%;
+            background: black;
+            margin-right: 1rem;
+
+            shape-outside: polygon(0 0, 100% 0, 5% 100%, 0% 100%);
+            shape-margin: 1rem;
+            clip-path: polygon(0 0, 100% 0, 5% 100%, 0% 100%);
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        section:not(:first-of-type) {
+            margin-top: 2rem;
+        }
+
+        p {
+            -webkit-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
         }
     }
 }
