@@ -23,11 +23,16 @@ document.querySelectorAll('img[data-url]').forEach(img => {
     })
 });
 
-document.getElementById('toggle').addEventListener('click', function () {
+document.getElementById('toggle').addEventListener('click', () => {
     var menu = document.getElementById('menu');
     if (menu.classList.contains('is-active'))
         this.setAttribute('aria-expanded', 'false');
     else
         this.setAttribute('aria-expanded', 'true');
     menu.classList.toggle('is-active');
+});
+
+
+document.querySelectorAll('audio').forEach(audio => {
+    let player = new Player(audio);
 });

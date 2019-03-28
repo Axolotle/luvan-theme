@@ -1,0 +1,81 @@
+.player {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    img {
+        max-width: 10vw;
+    }
+    & > p {
+        display: flex;
+    }
+}
+.player.js {
+    p {
+        margin: 0;
+    }
+
+    button {
+        position: absolute;
+        width: 10vw;
+        height: 10vw;
+        padding: 0;
+
+        &::after {
+            content: '';
+            height: 10vw;
+            width: 10vw;
+            margin-top: -5vw;
+            margin-left: -5vw;
+            position: absolute;
+            background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 60 60' height='10vw' width='10vw'%3E%3Cpath d='m20,17.5,20,12.5,-20,12.5z' style='fill:white;stroke:black;stroke-width:1px'/%3E%3C/svg%3E%0A");
+        }
+        &.playing::after {
+            background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 60 60' height='10vw' width='10vw'%3E%3Cg style='fill:white;stroke:black;stroke-width:1px'%3E%3Crect x='20' y='17.5' width='5' height='25'/%3EE%3Crect x='35' y='17.5' width='5' height='25'/%3E%3C/g%3E%3C/svg%3E%0A");
+        }
+
+    }
+    .player-infos {
+        width: 100%;
+        margin-left: 1rem;
+    }
+    .track {
+        width: 100%;
+        height: 28px;
+        margin-top: 1rem;
+        border-left: $stroke-w solid $main-neg-color;
+        border-right: $stroke-w solid $main-neg-color;
+
+        div {
+            box-sizing: content-box;
+            width: 0;
+            height: 28px;
+            position: relative;
+
+            &.track-loading {
+                height: 14px;
+                top: 7px;
+                background-color: white;
+                border-right: $stroke-w solid $main-neg-color;
+            }
+            &.track-progress {
+                top: -14px;
+                background-color: $alt-color2;
+                border-right: $stroke-w solid $main-neg-color;
+            }
+            &.line {
+                top: -29.5px;
+                height: $stroke-w;
+                background-color: $main-neg-color;
+                width: 100%;
+            }
+        }
+    }
+
+    audio {
+        width: 10vw;
+        height: 10vw;
+        position: absolute;
+        z-index: -1;
+    }
+}

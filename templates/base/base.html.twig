@@ -28,6 +28,7 @@
 {% endblock %}
 
 {% block javascripts %}
+{% do assets.addJs('theme://js/player.js') %}
 {% do assets.addJs('theme://js/script.js') %}
 {% endblock %}
 {{ assets.js() }}
