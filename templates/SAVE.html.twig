@@ -1,0 +1,10 @@
+{% if page.taxonomy.category %}
+<ul class="categories">
+    <span>Catégories :</span>
+    {% for category in page.taxonomy.category %}
+    <li>
+        <a href="{{ blog.url|rtrim('/') }}/category{{ config.system.param_sep }}{{ category }}">{{ category }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

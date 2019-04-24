@@ -9,7 +9,7 @@
 <svg aria-hidden="true" class="lines colored" viewBox="0 0 200 25">
     <use xlink:href="#line-{{ random(3) }}" />
 </svg>
-<h1 class="oblique aligned big">{{ page.title }}</h1>
+<h1 class="oblique aligned"><span>{{ page.title }}</span></h1>
 
 <section class="infos">
     <div class="content">
@@ -95,7 +95,7 @@
     <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
         <use xlink:href="#line-{{ random(3) }}" />
     </svg>
-    <h1 class="oblique aligned big">Publications Relatives</h1>
+    <h1 class="oblique aligned big"><span>Publications Relatives</span></h1>
 {% for item in publications %}
     {% set type = item.header.taxonomy.type %}
     <article>
@@ -113,7 +113,7 @@
     <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
         <use xlink:href="#line-{{ random(3) }}" />
     </svg>
-    <h1 class="oblique aligned big">Actualités Relatives</h1>
+    <h1 class="oblique aligned big"><span>Actualités Relatives</span></h1>
 {% for item in news %}
     {% set type = item.header.taxonomy.type %}
     <article class="{{ type }}">

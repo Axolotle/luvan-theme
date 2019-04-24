@@ -1,4 +1,12 @@
 aside {
+    #cross {
+        width: 1.5rem;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+    }
+
     .container {
         width: 100%;
         background-color: $alt-color;
@@ -20,6 +28,8 @@ aside {
         }
     }
 
+    z-index: 2;
+
     @media (orientation: portrait), (max-width: 800px) {
         section:not(:first-of-type) {
             display: none;
@@ -31,7 +41,6 @@ aside {
 
     @media (orientation: landscape) and (min-width: 800px)  {
         position: fixed;
-        z-index: 2;
         top: 0;
         right: 0;
         width: 30vw;
@@ -62,6 +71,23 @@ aside {
             -webkit-hyphens: auto;
             -ms-hyphens: auto;
             hyphens: auto;
+        }
+    }
+
+    &.hidden {
+        clip-path: none;
+        width: 3.5rem;
+        background-color: $alt-color;
+        border-left: $stroke-w solid $main-neg-color;
+
+        #cross {
+            transform: rotate(45deg);
+            width: 1.25rem;
+            right: 1.125rem;
+            top: 1.125rem;
+        }
+        .container, .shape {
+            display: none;
         }
     }
 }

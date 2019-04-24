@@ -8,9 +8,9 @@
 {% for medium in page.collection %}
 <section class="projects-list">
     <svg aria-hidden="true" class="lines" viewBox="0 0 200 25">
-        <use xlink:href="#line-{{ random(3) }}" />
+        <use xlink:href="#line-{{ loop.index % 4 }}" />
     </svg>
-    <h1 class="oblique aligned">{{ medium.title }}</h1>
+    <h1 class="oblique aligned"><span>{{ medium.title }}<span></h1>
     <div class="content">
         <ul>
         {% for work in medium.collection %}

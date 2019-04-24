@@ -23,7 +23,7 @@ document.querySelectorAll('img[data-url]').forEach(img => {
     })
 });
 
-document.getElementById('toggle').addEventListener('click', () => {
+document.getElementById('toggle').addEventListener('click', function () {
     var menu = document.getElementById('menu');
     if (menu.classList.contains('is-active'))
         this.setAttribute('aria-expanded', 'false');
@@ -35,4 +35,9 @@ document.getElementById('toggle').addEventListener('click', () => {
 
 document.querySelectorAll('audio').forEach(audio => {
     let player = new Player(audio);
+});
+
+document.getElementById('cross').addEventListener('click', function () {
+    document.querySelector('aside').classList.toggle('hidden');
+    document.querySelector('main').classList.toggle('enlarged');
 });

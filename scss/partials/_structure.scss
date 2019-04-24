@@ -16,6 +16,14 @@ main {
         font-size: 1.5rem;
         margin-left: 3rem;
 
+        @media (orientation: portrait), (max-width: 800px) {
+            margin-left: 2rem;
+
+            // @media (max-width: 600px) {
+            //     margin-left: 1rem;
+            // }
+        }
+
         &:not(.oblique) {
             @include font('bold');
             font-size: 1.5rem;
@@ -25,7 +33,7 @@ main {
 
         &.aligned {
             position: relative;
-            top: -3rem;
+            top: -3.5rem;
             margin-bottom: -10rem;
         }
 
@@ -33,23 +41,21 @@ main {
             transform: rotate($angle);
             transform-origin: top left;
             @include font('script');
-            height: 2.5rem;
-            padding: 0 1rem;
-            background-color: white;
+
+            span {
+                padding: 0 1rem .5rem 1rem;
+                line-height: 2.25rem;
+                background-color: white;
+            }
         }
 
-        &.big {
-            font-size: 2rem;
-            height: 3rem;
-        }
-
-        &.post, &.text {
+        &.post span, &.text span {
             background-color: $alt-color2;
         }
-        &.short, &.sound {
+        &.short span, &.sound span {
             background-color: $alt-color;
         }
-        &.notice, &.gallery {
+        &.notice span, &.gallery span {
             background-color: $alt-color3;
         }
     }
@@ -60,7 +66,6 @@ main {
 article {
 
     .content {
-        padding-right: 50%;
         padding-bottom: 10rem;
 
         blockquote {
@@ -103,9 +108,10 @@ article {
 
         .content {
             margin-top: -3rem;
-            transform: rotate(3deg);
-            transform-origin: top left;
-
+            @media (min-width: 600px) {
+                transform: rotate(3deg);
+                transform-origin: top left;
+            }
             max-height: 30rem;
             overflow: hidden;
             padding-bottom: 15rem;
@@ -172,8 +178,12 @@ section {
     ul {
         padding: 0 1rem;
         display: flex;
-        width: 50vw;
+        width: calc(100% - 30vw);
         justify-content: space-between;
+
+        @media (orientation: portrait), (max-width: 800px) {
+            width: 100%;
+        }
 
         li > * {
             display: inline-block;

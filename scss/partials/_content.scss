@@ -1,6 +1,66 @@
 .content {
-    width: 100%;
-    padding: 0 35% 3rem 5rem;
+    width: calc(100% - 30vw);
+    padding: 0 0 3rem 5rem;
+    max-width: 1280px;
+
+    @media (orientation: portrait), (max-width: 800px) {
+        width: 100%;
+        padding-right: 5rem;
+
+        @media (max-width: 600px) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        @include font('bold');
+        border-bottom: $stroke-w solid $main-neg-color;
+        margin-bottom: 2rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+        @include font('ital');
+        margin-bottom: 1.5rem;
+        text-decoration: underline;
+    }
+    h4 {
+        font-size: 1.25rem;
+        @include font('light');
+        margin-bottom: 1rem;
+        &::before {
+            content: '⋅ ';
+        }
+    }
+    h5 {
+        font-size: 1rem;
+        @include font('reg');
+        margin-bottom: 1rem;
+        background-color: $alt-color2;
+        height: 1.5rem;
+        padding: 0 1rem;
+    }
+    h6 {
+        font-size: 1rem;
+        @include font('bold');
+        margin-bottom: 1rem;
+        &::before {
+            content: '→ ';
+        }
+    }
+
+    & > ul {
+        margin: 1rem 0;
+        li {
+            &::before {
+                content: '— ';
+            }
+            ul {
+                margin-left: 1rem;
+            }
+        }
+    }
 
     time {
         display: block;
@@ -81,32 +141,35 @@
     }
 }
 
-.infos .content {
-    display: flex;
-    justify-content: space-between;
+.infos {
     background-color: $alt-color2;
-    margin-top: -2.5rem;
-    padding-bottom: 8vw;
 
-    .c-left {
-        padding-top: 2.5rem;
-        width: 60%;
-        order: -1;
-    }
-    .c-right {
-        width: 30%;
-        img {
-            max-width: 100%;
+    .content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: -2.5rem;
+        padding-bottom: 8vw;
+
+        .c-left {
+            padding-top: 2.5rem;
+            width: 60%;
+            order: -1;
         }
-    }
+        .c-right {
+            width: 30%;
+            img {
+                max-width: 100%;
+            }
+        }
 
-    .title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
+        .title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
 
-    hr {
-        margin: 2rem 0;
+        hr {
+            margin: 2rem 0;
+        }
     }
 }
 
@@ -124,9 +187,18 @@
         }
     }
     .content {
-        padding-bottom: 0;
-
         .title {
-            font-size: 1.75rem;        }
+            font-size: 1.75rem;
+        }
+    }
+}
+
+.enlarged .content {
+    width: calc(100% - 4rem);
+    padding-right: 5rem;
+
+    @media (max-width: 600px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
