@@ -40,9 +40,10 @@
                 {% set repr = h.representations|first %}
                 {{ repr.town ~ ', ' ~ repr.place }},
             {% endif %}
-            {% if h.extra_text %}{{ h.extra_text }},{% endif %}
-            {% if h.notes %}({{ h.notes }}),{% endif %}
+            {% if h.extra_text %}{{ h.extra_text|markdown|slice(3, length-4) }},{% endif %}
+            {% if h.notes %}({{ h.notes|markdown|slice(3, length-4) }}),{% endif %}
                 <em>{{ 'MONTHS_OF_THE_YEAR'|ta(h.date|date('n') - 1) }} {{ h.date|date("Y") }}</em>
+            {% if h.external_link %}{{ '— ' ~ h.external_link|markdown|slice(3, length-4) }}.{% endif %}
             </li>
         {% endfor %}
         </ul>

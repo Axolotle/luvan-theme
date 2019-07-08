@@ -1,7 +1,7 @@
 @charset "UTF-8";
 :root {
   font-family: "Compagnon", monospace;
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: black; }
   @media (max-width: 1350px) {
     :root {
@@ -61,6 +61,9 @@ blockquote > :last-child::after, q::after {
 p {
   margin: 1rem 0;
   font-weight: 400; }
+
+p, li {
+  line-height: 1.3em; }
 
 button {
   font-family: "Compagnon";
@@ -548,14 +551,16 @@ section h1.big {
     .infos .content hr {
       margin: 2rem 0; }
 
-.projects-list li:not(:last-of-type) {
-  margin-bottom: .75rem; }
-.projects-list li::before {
-  content: '~';
-  font-weight: 500;
-  position: absolute;
-  margin-top: 0.5rem;
-  margin-left: -1.25rem; }
+.projects-list li {
+  line-height: 1.5em; }
+  .projects-list li:not(:last-of-type) {
+    margin-bottom: 2rem; }
+  .projects-list li::before {
+    content: '~';
+    font-weight: 500;
+    position: absolute;
+    margin-top: 0.5rem;
+    margin-left: -1.25rem; }
 .projects-list .content .title {
   font-size: 1.75rem; }
 

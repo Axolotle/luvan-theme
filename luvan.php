@@ -58,7 +58,7 @@ class Luvan extends Theme
         $children = Grav::instance()['pages']->find($route)->children();
         $list = [];
         foreach ($children as $child) {
-            $list[$child->rawRoute()] = $child->menu();
+            $list[$child->rawRoute()] = '> ' . str_replace(' ', ' ', $child->menu());
         }
         return $list;
     }
@@ -85,7 +85,6 @@ class Luvan extends Theme
     public function onAdminCreatePageFrontmatter(Event $event)
     {
         $header = $event['header'];
-        dump('yolo');
 
         if (!isset($header['date'])) {
             $header['date'] = date($this->grav['config']->get('system.pages.dateformat.default', 'd-m-Y H:i'));

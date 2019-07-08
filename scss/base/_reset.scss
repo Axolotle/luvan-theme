@@ -2,7 +2,7 @@
 
 :root {
     font-family: $font, monospace;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: $text-color;
 
     @media (max-width: 1350px) {
@@ -70,6 +70,9 @@ blockquote > :last-child::after, q::after {
 p {
     margin: 1rem 0;
     @include font('reg');
+}
+p, li {
+    line-height: 1.3em;
 }
 button {
     font-family: $font;

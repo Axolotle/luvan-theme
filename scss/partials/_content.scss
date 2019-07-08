@@ -175,8 +175,9 @@
 
 .projects-list {
     li {
+        line-height: 1.5em;
         &:not(:last-of-type) {
-            margin-bottom: .75rem;
+            margin-bottom: 2rem;
         }
         &::before {
             content: '~';
