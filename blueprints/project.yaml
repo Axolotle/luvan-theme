@@ -40,7 +40,7 @@ form:
 
                 header.news.limit:
                   type: hidden
-                  default: 4
+                  default: 0
                   validate:
                     type: int
 
