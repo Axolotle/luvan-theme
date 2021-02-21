@@ -35,7 +35,9 @@ class Luvan extends Theme
      */
     public static function data($name)
     {
-        $elems = Grav::instance()['pages']->find('/database')->header()->{$name};
+        $pages = Grav::instance()['pages'];
+        $pages->enablePages();
+        $elems = $pages->find('/database')->header()->{$name};
         $list = [];
         foreach ($elems as $key => $value) {
             // For now reference is made by index, so one shouldn't remove
@@ -55,7 +57,9 @@ class Luvan extends Theme
      */
     public static function children($route)
     {
-        $children = Grav::instance()['pages']->find($route)->children();
+        $pages = Grav::instance()['pages'];
+        $pages->enablePages();
+        $children = $pages->find($route)->children();
         $list = [];
         foreach ($children as $child) {
             $list[$child->rawRoute()] = '> ' . str_replace(' ', ' ', $child->menu());
@@ -72,7 +76,9 @@ class Luvan extends Theme
      */
     public static function projects()
     {
-        $mediums = Grav::instance()['pages']->find('/portfolio')->children();
+        $pages = Grav::instance()['pages'];
+        $pages->enablePages();
+        $mediums = $pages->find('/portfolio')->children();
         $list = [];
         foreach ($mediums as $medium) {
             foreach ($medium->children() as $project) {
