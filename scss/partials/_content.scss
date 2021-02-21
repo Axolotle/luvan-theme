@@ -1,6 +1,6 @@
 .content {
     width: calc(100% - 30vw);
-    padding: 0 0 3rem 5rem;
+    padding: 0 0 3rem 6rem;
     max-width: 1280px;
 
     @media (orientation: portrait), (max-width: 800px) {
@@ -108,6 +108,10 @@
         &[data-url]:hover {
             cursor: pointer;
         }
+    }
+
+    iframe {
+      margin: 1rem 0;
     }
 
     .intro {

@@ -2,11 +2,11 @@
 
 :root {
     font-family: $font, monospace;
-    font-size: 1.1em;
+    font-size: 1em;
     color: $text-color;
 
     @media (max-width: 1350px) {
-        font-size: 1em;
+        font-size: .95em;
     }
 }
 

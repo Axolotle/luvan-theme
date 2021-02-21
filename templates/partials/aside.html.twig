@@ -7,28 +7,14 @@
     <div class="shape"></div>
     <div class="container">
         <section>
-            <h3>Actu</h3>
-            {{ blog.content }}
-        </section>
-
-        <section>
-            <h3>Dernières publications</h3>
-            <ul>
-{%            for post in pages.find('/publications').children.visible.order('date', 'desc')|slice(0, 4) %}
-                <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-{%            endfor %}
-            </ul>
-        </section>
-
-        <section>
             <h3>Dernières actualités</h3>
             <ul>
-{%            for post in blog.collection.visible.order('date', 'desc')|slice(0, 4) %}
+{%            for post in blog.collection.visible.order('date', 'desc')|slice(0, 10) %}
 {%              if post.header.taxonomy.type is same as('post') %}
                 <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {%              else %}
 {%              set alt_title = post.header.alt_title|markdown %}
-                <li>{{ alt_title|slice(3, length - 4) }} <a href="{{ post.url }}" title="Lire l'actualité">→</a></li>
+                <li>{{ alt_title|slice(3, length - 4) }} <a href="{{ post.url }}" title="Lire l'actualité">+</a></li>
 {%              endif %}
 {%            endfor %}
             </ul>

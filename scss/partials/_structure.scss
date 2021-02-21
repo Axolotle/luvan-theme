@@ -45,7 +45,10 @@ main {
             span {
                 padding: 0 1rem .5rem 1rem;
                 line-height: 2.25rem;
-                background-color: white;
+                background-color: $alt-color2;
+            }
+            @media (max-width: 600px) {
+                top: -2.5rem;
             }
         }
 
@@ -66,7 +69,7 @@ main {
 article {
 
     .content {
-        padding-bottom: 10rem;
+        padding-bottom: 7rem;
 
         blockquote {
             border-bottom: none;
@@ -74,12 +77,16 @@ article {
     }
 
     a.moar {
+        display: inline-block;
         text-decoration: none;
         background-color: white;
         border: $stroke-w solid $alt-color4;
         line-height: 1.3rem;
         height: 2rem;
-        padding: 0 .75rem;
+        padding: 0 .4rem;
+        font-size: 1.5rem;
+        line-height: 0.9rem;
+
 
         &:hover, &:focus {
             background-color: $alt-color4;
@@ -107,19 +114,29 @@ article {
         }
 
         .content {
-            margin-top: -3rem;
+            margin-top: -1rem;
             @media (min-width: 600px) {
+                margin-top: -3rem;
                 transform: rotate(3deg);
                 transform-origin: top left;
             }
             max-height: 30rem;
             overflow: hidden;
-            padding-bottom: 15rem;
+            // padding-bottom: 15rem;
         }
 
         a.moar {
             position: absolute;
-            bottom: 10rem;
+            top: 0;
+            left: 2.5rem;
+            transform: rotate(-90deg);
+            transform-origin: bottom right;
+
+            @media (max-width: 600px) {
+                top: -1rem;
+                right: 2rem;
+                left: auto;
+            }
         }
 
         &:nth-of-type(4n+1) {
@@ -137,7 +154,7 @@ article {
     }
 
     .gallery-preview {
-        margin-top: 2rem;
+        margin-top: 1rem;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;

@@ -18,12 +18,12 @@
             {{ image.cropZoom(400, 300).html() }}
 {%        endfor %}
         </div>
-        <a class="moar" href="{{ item.url }}">{{ 'CONTINUE_WATCHING'|t }}</a>
+        <a class="moar" href="{{ item.url }}" aria-label="{{ 'CONTINUE_WATCHING'|t }}">+</a>
 {%    else %}
         <div>
             {{ item.summary }}
-{%        if item.summary != item.content %}
-            <a class="moar" href="{{ item.url }}">{{ 'CONTINUE_READING'|t }}</a>
+{%        if type not in ['short', 'notice'] or item.summary != item.content %}
+            <a class="moar" href="{{ item.url }}" aria-label="{{ 'CONTINUE_READING'|t }}">+</a>
 {%        endif %}
         </div>
 {%    endif %}
